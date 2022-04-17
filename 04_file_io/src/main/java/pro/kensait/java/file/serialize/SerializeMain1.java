@@ -1,44 +1,38 @@
 package pro.kensait.java.file.serialize;
 
+import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.nio.file.Paths;
 
 public class SerializeMain1 {
 
-    @SuppressWarnings("static-access")
-    public static void main(String[] args) {
-        String fileName =
-                "C:/Java/eclipse_workspace/java/j2se/j2se_basic/file/foo.ser";
-        SerializeTarget target = new SerializeTarget();
-        target.x = 100;
-        target.y = 200;
-        target.z = 300;
+    public static void main(String[] args) throws Exception {
+        File serFile = Paths.get("hoge/alice.ser").toFile();
+        Person target = new Person(1, "Alice", 25);
 
-        //
-        ObjectOutputStream oos = null;
-        try {
-            oos = new ObjectOutputStream(new FileOutputStream(fileName));
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(serFile))) {
             oos.writeObject(target);
-        } catch (IOException ioe) {
-            throw new RuntimeException(ioe);
-        } finally {
-            try {
-                if (oos != null) {
-                    oos.close();
-                }
-            } catch(IOException ioe) {
-                throw new RuntimeException(ioe);
-            }
         }
     }
 }
 
 /* ======================================== */
-class SerializeTarget implements Serializable {
+class Person implements Serializable {
 
-    int x;
-    static int y;
-    transient int z;
+    private static final long serialVersionUID = -6011243720394071084L;
+    Integer personId;
+    String personName;
+    transient Integer age;
+    Person(Integer personId, String personName, Integer age) {
+        super();
+        this.personId = personId;
+        this.personName = personName;
+        this.age = age;
+    }
+    @Override
+    public String toString() {
+        return "Person [personId=" + personId + ", personName=" + personName + ", age=" + age + "]";
+    }
 }
