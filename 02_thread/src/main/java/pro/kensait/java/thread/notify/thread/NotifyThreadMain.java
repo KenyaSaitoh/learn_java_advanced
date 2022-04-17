@@ -16,7 +16,7 @@ class AdminThread extends Thread {
     public synchronized void run() {
         System.out.println("[ AdminThread ] Start...");
 
-        // 子スレッドを起動する。
+        // 子スレッドを起動する
         System.out.println("[ AdminThread ] Start ChildThread");
         ChildThread child = new ChildThread(this);
         child.start();

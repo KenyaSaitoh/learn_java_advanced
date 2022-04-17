@@ -24,6 +24,6 @@ class MyThread extends Thread {
 
     public void run() {
         System.out.println("[ MyThread#run ] Start");
-        System.out.println("Parameter ---> " + param);
+        System.out.println("Parameter => " + param);
     }
 }

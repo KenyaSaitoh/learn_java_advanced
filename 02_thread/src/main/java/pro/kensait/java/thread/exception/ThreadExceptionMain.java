@@ -9,7 +9,7 @@ public class ThreadExceptionMain {
         try {
             t.start();
         } catch(RuntimeException re) {
-            System.out.println("Catch Exception in Main Method ---> " +
+            System.out.println("Catch Exception in Main Method => " +
                     re.getMessage());
         }
         System.out.println("[ ThreadExceptionMain ] End");

@@ -32,7 +32,7 @@ class ReadThread extends Thread {
         System.out.println("[ ReadThread#run ] Start");
         System.out.println("[ ReadThread#run ] Call ReadProcess");
         int result = share.readProcess();
-        System.out.println("[ ReadThread#run ] End / result ---> " + result);
+        System.out.println("[ ReadThread#run ] End / result => " + result);
     }
 }
 
@@ -60,7 +60,7 @@ class Share {
     int data = 0;
 
     public synchronized int readProcess() {
-        System.out.println("[ Share#readProcess ] Start / data ---> " + data);
+        System.out.println("[ Share#readProcess ] Start / data => " + data);
 
         try {
             // ロックを解放し、ウェイトセットに入る。
@@ -70,7 +70,7 @@ class Share {
             throw new RuntimeException(ie);
         }
 
-        System.out.println("[ Share#readProcess ] End / data ---> " + data);
+        System.out.println("[ Share#readProcess ] End / data => " + data);
         return data;
     }
 
@@ -87,6 +87,6 @@ class Share {
         System.out.println("[ Share#writeProcess ] Notify to ReadProcess");
         notifyAll();
 
-        System.out.println("[ Share#writeProcess ] End / data ---> " + data);
+        System.out.println("[ Share#writeProcess ] End / data => " + data);
     }
 }

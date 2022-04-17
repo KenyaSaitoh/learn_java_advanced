@@ -46,12 +46,12 @@ class DeadlockThread extends Thread {
         String threadName = this.getName();
         while (true) {
             synchronized (share1) { // まず共有オブジェクト1をロック
-                System.out.println("[" + threadName + " / ShareObject = 1] Before Add Count ---> " + share1.getValue());
+                System.out.println("[" + threadName + " / ShareObject = 1] Before Add Count => " + share1.getValue());
                 share1.addCount(count); // スレッドが保持しているカウンタで共有オブジェクト1の値を更新
                 System.out.println("[" + threadName + " / ShareObject = 1] Commit Add Count =======> "
                         + share1.getValue());
                 synchronized (share2) { // 共通オブジェクト1にロックをかけたまま、共有オブジェクト2をロック
-                    System.out.println("[" + threadName + " / ShareObject = 2] Before Add Count ---> "
+                    System.out.println("[" + threadName + " / ShareObject = 2] Before Add Count => "
                             + share2.getValue());
                     share2.addCount(count); // スレッドが保持しているカウンタで共有オブジェクト2の値を更新
                     System.out.println("[" + threadName + " / ShareObject = 2] Commit Add Count =======> "

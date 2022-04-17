@@ -35,7 +35,7 @@ class SyncThread extends Thread {
     public void run() {
         String name = this.getName();
         while (true) {
-            System.out.println("(" + name + ") Before Add Count ---> " +
+            System.out.println("(" + name + ") Before Add Count => " +
                     share.getCount());
             share.addCount(value);
             System.out.println("(" + name + ") After Add Count =======> " +

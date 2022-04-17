@@ -23,7 +23,7 @@ class MyThread extends Thread {
     public void run() {
         ThreadLocal<String> context = ThreadLocalHolder.getContext();
         context.set(threadName);
-        System.out.println("MyThread : Value ---> " + threadName);
+        System.out.println("MyThread : Value => " + threadName);
         ThreadLocalTarget target = new ThreadLocalTarget(threadName);
         target.executeTask();
     }
@@ -41,7 +41,7 @@ class ThreadLocalTarget {
     public void executeTask() {
         ThreadLocal<String> context = ThreadLocalHolder.getContext();
         String value = context.get();
-        System.out.println("ThreadLocalTarget : ThreadName ---> " + threadName + ", Value ---> " + value);
+        System.out.println("ThreadLocalTarget : ThreadName => " + threadName + ", Value => " + value);
     }
 }
 

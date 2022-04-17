@@ -5,7 +5,7 @@ public class TimerMain {
     boolean stopFlag = false;
 
     public static void main(String[] args) {
-        System.out.println("TimerMain ---> Start");
+        System.out.println("TimerMain => Start");
         new TimerMain().method();
     }
 
@@ -17,9 +17,9 @@ public class TimerMain {
                 Thread.sleep(1000);
             } catch (Exception e) {
             }
-            System.out.println("TimerMain ---> Executed");
+            System.out.println("TimerMain => Executed");
         }
-        System.out.println("TimerMain ---> End");
+        System.out.println("TimerMain => End");
     }
 
     public void setStopFlag(boolean stopFlag) {
@@ -39,13 +39,13 @@ class TimerThread extends Thread {
     }
 
     public void run() {
-        System.out.println("TimerThread ---> Start Watching...");
+        System.out.println("TimerThread => Start Watching...");
         try {
             Thread.sleep(timer);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("TimerThread ---> Time Over!!!");
+        System.out.println("TimerThread => Time Over!!!");
         client.setStopFlag(true);
     }
 }
