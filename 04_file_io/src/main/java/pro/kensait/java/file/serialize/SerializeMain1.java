@@ -19,20 +19,8 @@ public class SerializeMain1 {
 }
 
 /* ======================================== */
-class Person implements Serializable {
-
+record Person(Integer personId,
+        String personName,
+        Integer age) implements Serializable {
     private static final long serialVersionUID = -6011243720394071084L;
-    Integer personId;
-    String personName;
-    transient Integer age;
-    Person(Integer personId, String personName, Integer age) {
-        super();
-        this.personId = personId;
-        this.personName = personName;
-        this.age = age;
-    }
-    @Override
-    public String toString() {
-        return "Person [personId=" + personId + ", personName=" + personName + ", age=" + age + "]";
-    }
 }
