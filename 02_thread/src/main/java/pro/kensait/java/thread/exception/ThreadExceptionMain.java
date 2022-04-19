@@ -12,7 +12,7 @@ public class ThreadExceptionMain {
             System.out.println("Catch Exception in Main Method => " +
                     re.getMessage());
         }
-        System.out.println("[ ThreadExceptionMain ] End");
+        System.out.println("[ ThreadExceptionMain ] Finish");
     }
 }
 

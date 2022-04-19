@@ -1,61 +1,55 @@
 package pro.kensait.java.thread.deadlock;
 
-public class DeadlockMain {
+import static pro.kensait.java.thread.util.ThreadUtil.*;
 
-    private Share shareX;
-    private Share shareY;
+public class DeadlockMain {
 
     public static void main(String[] args) {
         (new DeadlockMain()).executeTask();
     }
 
     private void executeTask() {
-        shareX = new Share(0); // 初期値が0の共有オブジェクトを生成
-        shareY = new Share(10000); // 初期値が10000の共有オブジェクトを生成
+        SharedObject objectX = new SharedObject(0); // 初期値が0の共有オブジェクトを生成する
+        SharedObject objectY = new SharedObject(10000); // 初期値が10000の共有オブジェクトを生成する
 
+        // カウンタが5のスレッドt5を生成し、起動する
+        DeadlockThread t5 = new DeadlockThread("t5", objectX, objectY, 5);
+        t5.start();
 
-        DeadlockThread thread0 = new DeadlockThread(shareX, shareY, 5); // カウンタが5のスレッドを生成
-        thread0.start(); // スレッド0を起動
+        sleepAWhile(1000);
 
-        try {
-            Thread.sleep(1000); // 1秒間スリープ
-        } catch (InterruptedException ie) {
-            throw new RuntimeException(ie);
-        }
-
-
-        DeadlockThread thread1 = new DeadlockThread(shareY, shareX, 7); // カウンタが7のスレッドを生成
-        thread1.start(); // スレッド0から1秒遅れてスレッド1を起動
+        // カウンタが7のスレッドt7を生成し、t5から1秒遅れて起動する
+        DeadlockThread t7 = new DeadlockThread("t7", objectY, objectX, 7);
+        t7.start();
     }
 }
 
 /* ======================================== */
 class DeadlockThread extends Thread {
 
+    private String name;
+    private SharedObject share1; // 共有オブジェクト1
+    private SharedObject share2; // 共有オブジェクト2
     private int count; // カウンタ
-    private Share share1; // 共有オブジェクト1をフィールドとして保持
-    private Share share2; // 共有オブジェクト2をフィールドとして保持
 
-    public DeadlockThread(Share share1, Share share2, int count) {
+    public DeadlockThread(String name, SharedObject share1, SharedObject share2,
+            int count) {
+        this.name = name;
         this.share1 = share1;
         this.share2 = share2;
         this.count = count;
     }
 
     public void run() {
-        String threadName = this.getName();
         while (true) {
             synchronized (share1) { // まず共有オブジェクト1をロック
-                System.out.println("[" + threadName + " / ShareObject = 1] Before Add Count => " + share1.getValue());
-                share1.addCount(count); // スレッドが保持しているカウンタで共有オブジェクト1の値を更新
-                System.out.println("[" + threadName + " / ShareObject = 1] Commit Add Count =======> "
-                        + share1.getValue());
+                System.out.println("[ " + name + ", 1 ] " + share1.getData());
+                share1.addData(count); // スレッドが保持しているカウンタで共有オブジェクト1の値を更新
+                System.out.println("[ " + name + ", 1 ] " + share1.getData());
                 synchronized (share2) { // 共通オブジェクト1にロックをかけたまま、共有オブジェクト2をロック
-                    System.out.println("[" + threadName + " / ShareObject = 2] Before Add Count => "
-                            + share2.getValue());
-                    share2.addCount(count); // スレッドが保持しているカウンタで共有オブジェクト2の値を更新
-                    System.out.println("[" + threadName + " / ShareObject = 2] Commit Add Count =======> "
-                            + share2.getValue());
+                    System.out.println("[ " + name + ", 2 ] " + share2.getData());
+                    share2.addData(count); // スレッドが保持しているカウンタで共有オブジェクト2の値を更新
+                    System.out.println("[ " + name + ", 2 ] " + share2.getData());
                 }
             }
         }
@@ -63,25 +57,22 @@ class DeadlockThread extends Thread {
 }
 
 /* ======================================== */
-class Share {
+class SharedObject {
 
-    private int value;
+    private int data;
 
-    public Share(int value) {
-        this.value = value;
+    public SharedObject(int data) {
+        this.data = data;
     }
 
-    public void addCount(int count) {
-        int value = this.value;
-        try {
-            Thread.sleep(500);
-        } catch (Exception e) {
-        }
-        value = value + count;
-        this.value = value; // 引数として渡されたカウンタをプラスして、値を更新
+    // dataフィールドへの更新処理
+    public void addData(int num) {
+        int tmp = this.data + num;
+        sleepAWhile(100);
+        this.data = tmp;
     }
 
-    public int getValue() {
-        return value;
+    public int getData() {
+        return data;
     }
 }

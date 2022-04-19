@@ -1,25 +1,24 @@
 package pro.kensait.java.thread.timer;
 
+import static pro.kensait.java.thread.util.ThreadUtil.sleepAWhile;
+
 public class TimerMain {
 
     boolean stopFlag = false;
 
     public static void main(String[] args) {
-        System.out.println("TimerMain => Start");
+        System.out.println("[ TimerMain ] Start");
         new TimerMain().method();
     }
 
     private void method() {
-        TimerThread timer = new TimerThread(this, 10000);
+        MonitorThread timer = new MonitorThread(this, 10000);
         timer.start();
-        while (!stopFlag) {
-            try {
-                Thread.sleep(1000);
-            } catch (Exception e) {
-            }
-            System.out.println("TimerMain => Executed");
+        while (! stopFlag) {
+            sleepAWhile(1000);
+            System.out.println("[ TimerMain ] Execute something...");
         }
-        System.out.println("TimerMain => End");
+        System.out.println("[ TimerMain ] Finish");
     }
 
     public void setStopFlag(boolean stopFlag) {
@@ -28,24 +27,20 @@ public class TimerMain {
 }
 
 /* ======================================== */
-class TimerThread extends Thread {
+class MonitorThread extends Thread {
 
-    TimerMain client;
-    int timer;
+    private TimerMain client;
+    private long timer;
 
-    public TimerThread(TimerMain client, int timer) {
+    public MonitorThread(TimerMain client, long timer) {
         this.client = client;
         this.timer = timer;
     }
 
     public void run() {
-        System.out.println("TimerThread => Start Watching...");
-        try {
-            Thread.sleep(timer);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        System.out.println("TimerThread => Time Over!!!");
+        System.out.println("[ MonitorThread ] Start Watching...");
+        sleepAWhile(timer);
+        System.out.println("[ MonitorThread ] Timeout!!!");
         client.setStopFlag(true);
     }
 }

@@ -1,26 +1,27 @@
 package pro.kensait.java.thread.join;
 
+import static pro.kensait.java.thread.util.ThreadUtil.sleepAWhile;
+
 public class ThreadJoinMain {
 
     public static void main(String[] args) {
-        // 1つ目のスレッドを生成し、開始する。
-        System.out.println("===== THREAD 1 START =====");
+        // 1つ目のスレッドを生成し、開始する
+        System.out.println("[ T-1 ] Start");
         JoinThread t1 = new JoinThread(3000);
         t1.start();
 
-        // 2つ目のスレッドを生成し、開始する。
-        System.out.println("===== THREAD 2 START =====");
+        // 2つ目のスレッドを生成し、開始する
+        System.out.println("[ T-2 ] Start");
         JoinThread t2 = new JoinThread(5000);
         t2.start();
 
-
         try {
-            // t1とジョインする。
+            // t1とジョインする
             t1.join();
-            System.out.println("===== THREAD 1 END =====");
-            // t2とジョインする。
+            System.out.println("[ T-1 ] Finish");
+            // t2とジョインする
             t2.join();
-            System.out.println("===== THREAD 2 END =====");
+            System.out.println("[ T-2 ] Finish");
         } catch (InterruptedException ie) {
             throw new RuntimeException(ie);
         }
@@ -30,17 +31,13 @@ public class ThreadJoinMain {
 /* ======================================== */
 class JoinThread extends Thread {
 
-    int timer;
+    private long timer;
 
-    public JoinThread(int timer) {
+    public JoinThread(long timer) {
         this.timer = timer;
     }
 
     public void run() {
-        try {
-            Thread.sleep(timer);
-        } catch (InterruptedException ie) {
-            throw new RuntimeException(ie);
-        }
+        sleepAWhile(timer);
     }
 }
