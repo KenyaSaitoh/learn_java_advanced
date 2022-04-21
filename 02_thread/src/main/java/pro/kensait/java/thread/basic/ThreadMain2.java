@@ -1,6 +1,6 @@
 package pro.kensait.java.thread.basic;
 
-import static pro.kensait.java.thread.util.ThreadUtil.sleepAWhile;
+import static pro.kensait.java.thread.util.ThreadUtil.*;
 
 public class ThreadMain2 {
 
@@ -19,17 +19,17 @@ public class ThreadMain2 {
 
 /* ======================================== */
 class MyRunnable implements Runnable {
-    private String name;
+    private String property;
     private long timer;
     
-    public MyRunnable(String name, long timer) {
-        this.name = name;
+    public MyRunnable(String property, long timer) {
+        this.property = property;
         this.timer = timer;
     }
 
     public void run() {
-        System.out.println("[ MyRunnable#run ] Start, name => " + name);
+        System.out.println("[ MyRunnable ] Start, property => " + property);
         sleepAWhile(timer);
-        System.out.println("[ MyRunnable#run ] Finish, name => " + name);
+        System.out.println("[ MyRunnable ] Finish, property => " + property);
     }
 }

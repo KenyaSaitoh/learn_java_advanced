@@ -1,47 +1,53 @@
 package pro.kensait.java.thread.threadlocal;
 
-import java.util.Map;
 import java.util.HashMap;
-import static pro.kensait.java.thread.util.ThreadUtil.sleepAWhile;
+import java.util.Map;
 
 public class ThreadLocalMain {
 
     public static void main(String[] args) {
-        FooThread foo = new FooThread();
-        foo.start();
-        BarThread bar = new BarThread();
-        bar.start();
+        // スレッドt1を生成して開始する
+        MyThread t1 = new MyThread("Foo");
+        t1.start();
+
+        // スレッドt2を生成して開始する
+        MyThread t2 = new MyThread("Bar");
+        t2.start();
     }
 }
 
 /* ======================================== */
-class FooThread extends Thread {
+class MyThread extends Thread {
 
-    public void run() {
-        this.setDaemon(true);
-        ThreadLocalHolder.get().put("key", "This is shared info");
+    private String property;
+
+    public MyThread(String property) {
+        this.property = property;
     }
-}
-
-/* ======================================== */
-class BarThread extends Thread {
 
     public void run() {
-        this.setDaemon(true);
+        ThreadLocalHolder.get().put("key", property + property);
+        process();
+    }
+
+    public void process() {
         String value = ThreadLocalHolder.get().get("key");
-        System.out.println("[ BarThread ] value => " + value);
+        System.out.println("[ MyThread#process ] " + property + " => " + value);
     }
 }
+
 /* ======================================== */
 class ThreadLocalHolder {
 
     private static ThreadLocal<Map<String, String>> context =
-            new ThreadLocal<>();
+            new ThreadLocal<>() {
+        @Override
+        public Map<String, String> initialValue() {
+            return new HashMap<String, String>();
+        }
+    };
 
     public static Map<String, String> get() {
-        if (context.get() == null) {
-            context.set(new HashMap<String, String>());
-        }
         return context.get();
     }
 }
