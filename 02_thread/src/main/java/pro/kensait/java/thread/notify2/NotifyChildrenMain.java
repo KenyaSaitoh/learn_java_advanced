@@ -1,8 +1,8 @@
-package pro.kensait.java.thread.notify3;
+package pro.kensait.java.thread.notify2;
 
 import static pro.kensait.java.thread.util.ThreadUtil.*;
 
-public class NotifyCountDownMain {
+public class NotifyChildrenMain {
 
     public static void main(String[] args) {
         ParentThread parent = new ParentThread();
@@ -16,26 +16,23 @@ class ParentThread extends Thread {
     private int count; // アクティブな子スレッド数
 
     public synchronized void run() {
-        System.out.println("[ ParentThread ] Start, count => " + count);
+        System.out.println("[ ParentThread ] Start");
 
         // スレッド1を開始する
-        System.out.println(
-                "[ ParentThread ] Start ChildThread1, count => " + count);
-        ChildThread child1 = new ChildThread(this, "1", 5000);
+        System.out.println("[ ParentThread ] Start child-1");
+        ChildThread child1 = new ChildThread(this, "child-1", 5000);
         child1.start();
         count++;
 
         // スレッド2を開始する
-        System.out.println(
-                "[ ParentThread ] Start ChildThread2, count => " + count);
-        ChildThread child2 = new ChildThread(this, "2", 10000);
+        System.out.println("[ ParentThread ] Start child-2");
+        ChildThread child2 = new ChildThread(this, "child-2", 10000);
         child2.start();
         count++;
 
         // スレッド3を開始する
-        System.out.println(
-                "[ ParentThread ] Start ChildThread3, count => " + count);
-        ChildThread child3 = new ChildThread(this, "3", 15000);
+        System.out.println("[ ParentThread ] Start child-3");
+        ChildThread child3 = new ChildThread(this, "child-3", 15000);
         child3.start();
         count++;
 
@@ -53,12 +50,12 @@ class ParentThread extends Thread {
         System.out.println("[ ParentThread ] Finish, count => " + count);
     }
 
-    public synchronized void delChildThread() {
-        // 子スレッド数の減少
+    public synchronized void minusChildThreadCount() {
+        // 子スレッド数を減らす
         count--;
-        System.out.println("[ ParentThread ] Delete childThread, count => " + count);
+        System.out.println("[ ParentThread ] count => " + count);
 
-        //
+        // ウェイトセットに入ったスレッド（1つだけ）に通知を送る
         notify();
     }
 }
@@ -80,6 +77,8 @@ class ChildThread extends Thread {
         System.out.println("[ ChildThread(" + property + ") ] Start");
         sleepAWhile(timer);
         System.out.println("[ ChildThread(" + property + ") ] Finish");
-        parent.delChildThread();
+
+        // 子スレッドが終了したので、親スレッドが保持する子スレッド数を減らす
+        parent.minusChildThreadCount();
     }
 }

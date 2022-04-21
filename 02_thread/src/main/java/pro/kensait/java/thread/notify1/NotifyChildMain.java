@@ -2,7 +2,7 @@ package pro.kensait.java.thread.notify1;
 
 import static pro.kensait.java.thread.util.ThreadUtil.*;
 
-public class NotifyMain {
+public class NotifyChildMain {
 
     public static void main(String[] args) {
         ParentThread parent = new ParentThread();
@@ -16,7 +16,7 @@ class ParentThread extends Thread {
     public synchronized void run() {
         System.out.println("[ ParentThread ] Start");
 
-        // 自身への参照を持つ子スレッドを生成し、起動する
+        // 自身への参照を持つ子スレッドを生成し、開始する
         System.out.println("[ ParentThread ] Start ChildThread");
         ChildThread child = new ChildThread(this);
         child.start();
@@ -44,8 +44,8 @@ class ChildThread extends Thread {
         System.out.println("[ ChildThread ] Start");
         sleepAWhile(5000);
 
-        //
         synchronized(parent) {
+            // ウェイトセットに入ったスレッド（1つだけ）に通知を送る
             parent.notify();
             System.out.println("[ ChildThread ] Finish");
         }

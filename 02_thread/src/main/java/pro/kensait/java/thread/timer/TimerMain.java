@@ -1,6 +1,6 @@
 package pro.kensait.java.thread.timer;
 
-import static pro.kensait.java.thread.util.ThreadUtil.sleepAWhile;
+import static pro.kensait.java.thread.util.ThreadUtil.*;
 
 public class TimerMain {
 
@@ -8,10 +8,10 @@ public class TimerMain {
 
     public static void main(String[] args) {
         System.out.println("[ TimerMain ] Start");
-        new TimerMain().method();
+        new TimerMain().process();
     }
 
-    private void method() {
+    private void process() {
         MonitorThread timer = new MonitorThread(this, 10000);
         timer.start();
         while (! stopFlag) {

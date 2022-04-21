@@ -11,16 +11,16 @@ public class RunnableTaskMultiMain2 {
 
         ExecutorService executor = Executors.newFixedThreadPool(2);
 
-        RunnableTask task1 = new RunnableTask("A");
-        RunnableTask task2 = new RunnableTask("AB");
-        RunnableTask task3 = new RunnableTask("ABC");
+        RunnableTask task1 = new RunnableTask("Foo");
+        RunnableTask task2 = new RunnableTask("Bar");
+        RunnableTask task3 = new RunnableTask("Baz");
 
         try {
             Future<?> future1 = executor.submit(task1);
             Future<?> future2 = executor.submit(task2);
             future1.get();
             future2.get();
-            System.out.println("Task1 & 2 is done!");
+            System.out.println("[ RunnableTaskMultiMain2 ] task1 & task2 done");
 
             executor.submit(task3);
 

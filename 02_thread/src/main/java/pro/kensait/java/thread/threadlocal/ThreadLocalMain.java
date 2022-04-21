@@ -6,11 +6,11 @@ import java.util.Map;
 public class ThreadLocalMain {
 
     public static void main(String[] args) {
-        // スレッドt1を生成して開始する
+        // スレッドt1を生成し、開始する
         MyThread t1 = new MyThread("Foo");
         t1.start();
 
-        // スレッドt2を生成して開始する
+        // スレッドt2を生成し、開始する
         MyThread t2 = new MyThread("Bar");
         t2.start();
     }

@@ -4,14 +4,14 @@ import pro.kensait.java.thread.util.ThreadUtil;
 
 public class MyCommand implements Runnable {
 
-    private String name;
+    private String property;
 
-    public MyCommand(String name) {
-        this.name = name;
+    public MyCommand(String property) {
+        this.property = property;
     }
 
     public void run() {
-        System.out.println("[ MyCommand#run ] Start (" + name + ")");
+        System.out.println("[ MyCommand#run ] Start (" + property + ")");
 
         // 意図的に3000ミリ秒～20000秒（ランダムに決定）スリープする。
         try {
@@ -19,10 +19,10 @@ public class MyCommand implements Runnable {
         } catch(RuntimeException re) {
         }
 
-        System.out.println("[ MyCommand#run ] End (" + name + ")");
+        System.out.println("[ MyCommand#run ] End (" + property + ")");
     }
 
     public String getValue() {
-        return name;
+        return property;
     }
 }

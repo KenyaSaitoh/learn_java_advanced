@@ -5,10 +5,7 @@ import static pro.kensait.java.thread.util.ThreadUtil.*;
 public class DeadlockMain {
 
     public static void main(String[] args) {
-        (new DeadlockMain()).executeTask();
-    }
 
-    private void executeTask() {
         // 初期値が0の共有オブジェクトを生成する
         SharedObject objectX = new SharedObject(0);
         // 初期値が10000の共有オブジェクトを生成する
@@ -74,9 +71,8 @@ class SharedObject {
 
     // dataフィールドへの更新処理
     public void addData(int num) {
-        int tmp = this.data + num;
         sleepAWhile(100);
-        this.data = tmp;
+        this.data = this.data + num;
     }
 
     public int getData() {

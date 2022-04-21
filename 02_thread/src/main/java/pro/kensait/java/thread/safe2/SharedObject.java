@@ -1,6 +1,6 @@
 package pro.kensait.java.thread.safe2;
 
-import pro.kensait.java.thread.util.ThreadUtil;
+import static pro.kensait.java.thread.util.ThreadUtil.*;
 
 public class SharedObject {
 
@@ -15,7 +15,7 @@ public class SharedObject {
     // synchronizedキーワードによってこのメソッドを全体を同期化する必要がある。
     synchronized public void addData(int num) {
         int tmp = this.data + num;
-        ThreadUtil.sleepAWhile(10); // 追い抜きのチャンス
+        sleepAWhile(10); // 追い抜きのチャンス
         this.data = tmp;
     }
 

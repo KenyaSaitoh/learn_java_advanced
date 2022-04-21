@@ -6,14 +6,14 @@ import pro.kensait.java.thread.util.ThreadUtil;
 
 public class MyCommand2 implements Callable<String> {
 
-    private String name;
+    private String property;
 
-    public MyCommand2(String name) {
-        this.name = name;
+    public MyCommand2(String property) {
+        this.property = property;
     }
 
     public String call() throws Exception {
-        System.out.println("[ MyComman2d#run ] Start (" + name + ")");
+        System.out.println("[ MyComman2d#run ] Start (" + property + ")");
 
         // 意図的に3000ミリ秒～20000秒（ランダムに決定）スリープする。
         try {
@@ -25,6 +25,6 @@ public class MyCommand2 implements Callable<String> {
     }
 
     public String getValue() {
-        return name;
+        return property;
     }
 }
