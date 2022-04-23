@@ -1,4 +1,4 @@
-package pro.kensait.java.thread.notify1;
+package pro.kensait.java.thread.notify;
 
 import static pro.kensait.java.thread.util.ThreadUtil.*;
 
