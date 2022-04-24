@@ -23,7 +23,7 @@ public class LogWriterMain {
 
     private void info(Supplier<String> message) {
         if (infoLevel) {
-            System.out.println("[ INFO ]" + message.get());
+            System.out.println("[ INFO ] " + message.get());
         }
     }
 }

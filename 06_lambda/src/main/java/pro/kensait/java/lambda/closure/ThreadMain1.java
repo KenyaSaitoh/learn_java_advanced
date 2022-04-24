@@ -1,7 +1,5 @@
 package pro.kensait.java.lambda.closure;
 
-import static pro.kensait.java.thread.util.ThreadUtil.*;
-
 public class ThreadMain1 {
     private int count;
 
@@ -11,10 +9,6 @@ public class ThreadMain1 {
 
     public static void main(String[] args) {
         new ThreadMain1(10).process1();
-
-        sleepAWhile(1000);
-        System.out.println("====================");
-
         new ThreadMain1(10).process2();
     }
 

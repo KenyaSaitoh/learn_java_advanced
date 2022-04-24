@@ -1,11 +1,12 @@
-package pro.kensait.java.lambda.sum;
+package pro.kensait.java.lambda.counter;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class RecursiveCountMain1 {
+
     public static void main(String[] args) {
-        List<Integer> list = Arrays.asList(new Integer[]{1, 2, 3, 4, 5});
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         int sum = calc(list, 0, 0);
         System.out.println(sum);
     }
