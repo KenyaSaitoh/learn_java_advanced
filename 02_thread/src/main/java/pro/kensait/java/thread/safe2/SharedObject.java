@@ -11,11 +11,11 @@ public class SharedObject {
     }
 
     // dataフィールドへの更新処理。
-    // この処理は「アトミックな処理」ではないため、本来は
-    // synchronizedキーワードによってこのメソッドを全体を同期化する必要がある。
+    // この処理は「アトミックな処理」ではないため、
+    // synchronizedキーワードによってこのメソッドを同期化する必要がある。
     synchronized public void addData(int num) {
         int tmp = this.data + num;
-        sleepAWhile(10); // 追い抜きのチャンス
+        sleepAWhile(10); // 「割り込み」のチャンス
         this.data = tmp;
     }
 
