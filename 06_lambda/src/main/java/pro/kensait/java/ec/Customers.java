@@ -1,4 +1,4 @@
-package pro.kensait.java.interface2;
+package pro.kensait.java.ec;
 
 public class Customers {
     public static boolean isSame(Customer c1, Customer c2) {
