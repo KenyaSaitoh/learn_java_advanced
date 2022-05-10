@@ -10,9 +10,9 @@ import java.nio.charset.Charset;
 public class ChannelClient {
 
     public static void main(String[] args) {
-        new Thread(new ChannelClientThread("Foo")).start();
-        new Thread(new ChannelClientThread("Bar")).start();
-        new Thread(new ChannelClientThread("Baz")).start();
+        new Thread(new ChannelClientThread("Alice")).start();
+        new Thread(new ChannelClientThread("Bob")).start();
+        new Thread(new ChannelClientThread("Carol")).start();
     }
 }
 

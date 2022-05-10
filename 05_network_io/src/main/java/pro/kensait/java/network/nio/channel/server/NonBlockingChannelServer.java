@@ -122,22 +122,22 @@ public class NonBlockingChannelServer {
         // セレクトキーにアタッチされたByteBufferを取得する
         ByteBuffer buffer = (ByteBuffer) key.attachment();
 
+        // ByteBufferの読み込み位置を0に設定する
+        buffer.flip();
+
         // ByteBufferからデータを取り出し、何らかの業務処理を行う
         Charset charset = Charset.forName("UTF-8");
-        String request = new String(buffer.array(), charset);
-        String response = "!!!!!!!!!!" + request;
+        String request = charset.decode(buffer).toString();
+        String response = "Hello! 私は" + request + "です。";
         System.out.println("[ Server#write ] response => " + response);
         sleepAWhile(5000);
 
-        // ByteBufferの読み込み位置を0に設定する
-        buffer.flip();
+        // 書き込みのためにByteBufferをクリアする
+        buffer.clear();
 
         // クライアントチャネルにByteBufferからデータを書き込む
         buffer = charset.encode(CharBuffer.wrap(response));
         clientChannel.write(buffer);
-
-        // ByteBufferをクリアする
-        buffer.clear();
 
         // クライアントチャネルに、セレクタ、次の読み込み処理、ByteBufferを登録する
         clientChannel.register(selector, SelectionKey.OP_READ, buffer);

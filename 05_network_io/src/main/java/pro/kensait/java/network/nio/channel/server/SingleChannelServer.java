@@ -41,22 +41,22 @@ public class SingleChannelServer {
             // クライアントチャネルからByteBufferにデータを読み込む
             clientChannel.read(buffer);
 
+            // ByteBufferの読み込み位置を0に設定する
+            buffer.flip();
+
             // ByteBufferからデータを取り出し、何らかの業務処理を行う
             Charset charset = Charset.forName("UTF-8");
-            String request = new String(buffer.array(), charset);
-            String response = "!!!!!!!!!!" + request;
+            String request = charset.decode(buffer).toString();
+            String response = "Hello! 私は" + request + "です。";
             sleepAWhile(5000);
             System.out.println("[ Server ] response => " + response);
 
-            // ByteBufferの読み込み位置を0に設定する
-            buffer.flip();
+            // 書き込みのためにByteBufferをクリアする
+            buffer.clear();
 
             // クライアントチャネルにByteBufferからデータを書き込む
             buffer = charset.encode(CharBuffer.wrap(response));
             clientChannel.write(buffer);
-
-            // ByteBufferをクリアする
-            buffer.clear();
 
         } catch(IOException ioe) {
             throw new RuntimeException(ioe);
