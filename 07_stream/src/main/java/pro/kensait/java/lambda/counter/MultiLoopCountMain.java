@@ -11,6 +11,7 @@ public class MultiLoopCountMain {
         int sum = 0; // 非finalなローカル変数にはアクセスできない
 
         ValueHolder value = new ValueHolder();
+
         for (Integer x : list) {
             Runnable r = () -> {
                 value.total += x;

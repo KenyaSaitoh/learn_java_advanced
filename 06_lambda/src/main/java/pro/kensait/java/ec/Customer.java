@@ -14,10 +14,16 @@ public interface Customer {
     boolean isActive();
     void setActive(boolean flag);
     void checkTotalPriceLimit(Integer totalPrice) throws Exception;
-    abstract void addPoint(Integer point);
+    void addPoint(Integer point);
 
+    // 名寄せのためのチェックメソッドなので、単純にequalsでは判定できない
+    // 名前と住所が一致していたら、同じ顧客と見なす
     static boolean isSame(Customer c1, Customer c2) {
-        return c1.equals(c2);
+        if (c1.getName().equals(c2.getName())
+                && c1.getAddress().equals(c2.getAddress())) {
+            return true;
+        }
+        return false;
     }
 
     static Customer aggregate(Customer c1, Customer c2) {
