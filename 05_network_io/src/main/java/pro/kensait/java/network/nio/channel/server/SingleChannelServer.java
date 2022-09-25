@@ -23,7 +23,7 @@ public class SingleChannelServer {
             serverChannel.bind(new InetSocketAddress(PORT));
 
             while (true) {
-                System.out.println("[ Server ] Start accept");
+                System.out.println("[ Server ] start accept");
                 SocketChannel clientChannel = serverChannel.accept(); // ここで受信を待機する
                 process(clientChannel);
                 System.out.println("[ Server ] Finish accept");
@@ -32,7 +32,7 @@ public class SingleChannelServer {
     }
 
     private static void process(SocketChannel clientChannel) {
-        System.out.println("[ Server ] Start process");
+        System.out.println("[ Server ] start process");
 
         // リクエスト用のByteBufferを作成する
         ByteBuffer buffer = ByteBuffer.allocate(BUF_SIZE);

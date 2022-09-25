@@ -72,7 +72,7 @@ public class NonBlockingChannelServer {
     // クライアント接続処理
     private static void accept(ServerSocketChannel serverChannel, Selector selector)
             throws IOException {
-        System.out.println("[ Server#accept ] Start");
+        System.out.println("[ Server#accept ] start");
 
         // クライアントチャネルを取得する
         SocketChannel clientChannel = serverChannel.accept();
@@ -95,7 +95,7 @@ public class NonBlockingChannelServer {
 
     // 読み込み処理
     private static void read(SelectionKey key) throws IOException {
-        System.out.println("[ Server#read ] Start");
+        System.out.println("[ Server#read ] start");
 
         // セレクトキーからクライアントチャネルを取得する
         SocketChannel clientChannel = (SocketChannel) key.channel();
@@ -114,7 +114,7 @@ public class NonBlockingChannelServer {
 
     // 書き込み処理
     private static void write(SelectionKey key) throws IOException {
-        System.out.println("[ Server#write ] Start");
+        System.out.println("[ Server#write ] start");
 
         // セレクトキーからクライアントチャネルを取得する
         SocketChannel clientChannel = (SocketChannel) key.channel();

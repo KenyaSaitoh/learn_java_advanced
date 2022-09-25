@@ -22,7 +22,7 @@ public class MultiChannelServer {
             serverChannel.bind(new InetSocketAddress(PORT));
 
             while (true) {
-                System.out.println("[ Server ] Start accept");
+                System.out.println("[ Server ] start accept");
                 SocketChannel clientChannel = serverChannel.accept(); // ここで受信を待機する
                 new Thread(new ServerThread(clientChannel)).start();
                 System.out.println("[ Server ] Finish accept");
@@ -41,7 +41,7 @@ class ServerThread implements Runnable {
     }
 
     public void run() {
-        System.out.println("[ Server ] Start thread");
+        System.out.println("[ Server ] start thread");
 
         // リクエスト用のByteBufferを作成する
         ByteBuffer buffer = ByteBuffer.allocate(BUF_SIZE);
