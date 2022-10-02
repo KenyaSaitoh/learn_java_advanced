@@ -7,21 +7,23 @@ import java.util.concurrent.TimeUnit;
 public class Main_Await {
     public static void main(String[] args) {
         ExecutorService executor = Executors.newCachedThreadPool();
-        RunnableTask fooTask = new RunnableTask("foo", 7);
-        RunnableTask barTask = new RunnableTask("bar", 10);
+        RunnableTask fooTask = new RunnableTask("foo", 8);
+        RunnableTask barTask = new RunnableTask("bar", 15);
         RunnableTask bazTask = new RunnableTask("baz", 5);
+        System.out.println("[ Main ] starting all threads...");
+        executor.submit(fooTask);
+        executor.submit(barTask);
+        executor.submit(bazTask);
+        System.out.println("[ Main ] shutdown");
+        executor.shutdown();
         try {
-            System.out.println("[ Main ] starting all threads...");
-            executor.submit(fooTask);
-            executor.submit(barTask);
-            executor.submit(bazTask);
-            executor.awaitTermination(8L, TimeUnit.SECONDS);
-            System.out.println("[ Main ] finish");
-        } catch (InterruptedException ie) {
-            throw new RuntimeException(ie);
-        } finally {
-            System.out.println("[ Main ] shutdown");
-            executor.shutdown();
+            if (! executor.awaitTermination(12L, TimeUnit.SECONDS)) {
+                System.out.println("[ Main ] shutdown now");
+                executor.shutdownNow();
+            }
+        } catch(InterruptedException ie) {
+            executor.shutdownNow();
         }
+        System.out.println("[ Main ] finish");
     }
 }

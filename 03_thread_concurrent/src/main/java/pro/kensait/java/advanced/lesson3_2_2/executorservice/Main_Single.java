@@ -6,9 +6,9 @@ import java.util.concurrent.Executors;
 public class Main_Single {
     public static void main(String[] args) {
         ExecutorService executor = Executors.newSingleThreadExecutor();
-        RunnableTask fooTask = new RunnableTask("foo", 7);
-        RunnableTask barTask = new RunnableTask("bar", 10);
-        RunnableTask bazTask = new RunnableTask("baz", 5);
+        RunnableTask fooTask = new RunnableTask("foo", 4);
+        RunnableTask barTask = new RunnableTask("bar", 4);
+        RunnableTask bazTask = new RunnableTask("baz", 4);
         System.out.println("[ Main ] starting all threads...");
         executor.submit(fooTask);
         executor.submit(barTask);

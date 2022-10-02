@@ -1,4 +1,4 @@
-package pro.kensait.java.advanced.lesson3_1_3.countdownlatch;
+package pro.kensait.java.advanced.lesson3_3_1.countdownlatch;
 
 import static pro.kensait.java.advanced.common.ThreadUtil.*;
 
@@ -24,7 +24,7 @@ public class Worker extends Thread {
 
             // 処理を進める
             System.out.println("[ " + name + " ] do something...");
-            doSomething(2, 7);
+            doSomething(2, 8); // 2～8秒（ランダム）何かをする
 
             // 処理終了を通知する
             System.out.println("[ " + name + " ] finish");

@@ -1,4 +1,4 @@
-package pro.kensait.java.advanced.lesson3_2_4.invoke;
+package pro.kensait.java.advanced.lesson3_2_5.invokeall;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,8 +12,8 @@ import pro.kensait.java.advanced.lesson3_2_4.callable.CallableTask;
 public class Main {
     public static void main(String[] args) {
         ExecutorService executor = Executors.newCachedThreadPool();
-        CallableTask fooTask = new CallableTask("foo", 7);
-        CallableTask barTask = new CallableTask("bar", 10);
+        CallableTask fooTask = new CallableTask("foo", 8);
+        CallableTask barTask = new CallableTask("bar", 15);
         CallableTask bazTask = new CallableTask("baz", 5);
         List<CallableTask> taskList = new ArrayList<CallableTask>();
         taskList.add(fooTask);
@@ -30,8 +30,8 @@ public class Main {
             System.out.println("[ Main ] finish");
         } catch(InterruptedException | ExecutionException ex) {
             throw new RuntimeException(ex);
-        } finally {
-            executor.shutdown();
         }
+
+        executor.shutdown();
     }
 }

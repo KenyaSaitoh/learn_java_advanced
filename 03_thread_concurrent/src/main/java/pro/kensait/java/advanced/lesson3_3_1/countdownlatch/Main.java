@@ -1,4 +1,4 @@
-package pro.kensait.java.advanced.lesson3_1_3.countdownlatch;
+package pro.kensait.java.advanced.lesson3_3_1.countdownlatch;
 
 import static pro.kensait.java.advanced.common.ThreadUtil.*;
 

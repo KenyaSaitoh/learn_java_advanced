@@ -8,8 +8,8 @@ import java.util.concurrent.Future;
 public class Main_Multi {
     public static void main(String[] args) {
         ExecutorService executor = Executors.newCachedThreadPool();
-        CallableTask fooTask = new CallableTask("foo", 7);
-        CallableTask barTask = new CallableTask("bar", 10);
+        CallableTask fooTask = new CallableTask("foo", 8);
+        CallableTask barTask = new CallableTask("bar", 15);
         CallableTask bazTask = new CallableTask("baz", 5);
 
         try {
@@ -27,9 +27,8 @@ public class Main_Multi {
             System.out.println("[ Main ] finish");
         } catch (InterruptedException | ExecutionException ex) {
             throw new RuntimeException(ex);
-        } finally {
-            System.out.println("[ Main ] shutdown");
-            executor.shutdown();
         }
+
+        executor.shutdown();
     }
 }

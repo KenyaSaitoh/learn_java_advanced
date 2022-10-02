@@ -6,17 +6,14 @@ import java.util.concurrent.TimeUnit;
 
 public class Main_Schedule {
     public static void main(String[] args) {
-        ScheduledExecutorService executor = Executors.newScheduledThreadPool(3);
+        ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
         RunnableTask task = new RunnableTask();
-        try {
-            System.out.println("[ Main ] starting task...");
-            executor.schedule(task, 5L, TimeUnit.SECONDS);
-            System.out.println("[ Main ] finish");
-        } finally {
-            // ScheduledExecutorServiceは、Runnableの投入を待ち続けるため、
-            // shutdownを呼び出さないと、プログラムが終了しない
-            System.out.println("[ Main ] shutdown");
-            executor.shutdown();
-        }
+        System.out.println("[ Main ] starting task...");
+        executor.schedule(task, 5L, TimeUnit.SECONDS);
+        // ScheduledExecutorServiceは、Runnableの投入を待ち続けるため、
+        // shutdownを呼び出さないと、プログラムが終了しない
+        System.out.println("[ Main ] shutdown");
+        executor.shutdown();
+        System.out.println("[ Main ] finish");
     }
 }

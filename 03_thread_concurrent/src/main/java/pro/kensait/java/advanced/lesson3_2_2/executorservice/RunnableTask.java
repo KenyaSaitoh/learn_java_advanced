@@ -14,17 +14,17 @@ public class RunnableTask implements Runnable {
     @Override
     public void run() {
         long threadId = Thread.currentThread().getId(); // スレッドID
-        System.out.println("[ RunnableTask ][ " + name + " ] start, "
+        System.out.println("[ RunnableTask = " + name + " ] start, "
                 + "threadId => " + threadId);
 
         int value = 1;
         for (int i = 0; i < count; i++) { // カウント分ループする
-            System.out.println("[ RunnableTask ][ " + name + " ] processing...");
+            System.out.println("[ RunnableTask = " + name + " ] processing...");
             value = value * 3; // 値を3倍する
             sleepAWhile(1000); // 意図的に1秒停止する
         }
 
-        System.out.println("[ RunnableTask ][ " + name + " ] finish, "
+        System.out.println("[ RunnableTask = " + name + " ] finish, "
                 + "value => " + value);
     }
 }

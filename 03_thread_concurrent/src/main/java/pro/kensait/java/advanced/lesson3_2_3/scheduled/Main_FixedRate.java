@@ -6,15 +6,12 @@ import java.util.concurrent.TimeUnit;
 
 public class Main_FixedRate {
     public static void main(String[] args) {
-        ScheduledExecutorService executor = Executors.newScheduledThreadPool(3);
-        RunnableTask task = new RunnableTask();
+        ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
+        RunnableTask2 task = new RunnableTask2();
         System.out.println("[ Main ] starting task...");
-        // 2秒遅れて開始し、7秒毎に繰り返しタスクを実行する
-        // ここではタスクは約4～9秒で終わる
-        // 仮に7秒未満で終わった場合は、差分の分だけ遅延させる
-        // 仮に7秒以上かかった場合は、遅れを取り戻すために、即時実行される
-        // 固定的に7秒というフレームに極力合わせるようにタスクをスケジューリングする
-        executor.scheduleAtFixedRate(task, 2L, 7L, TimeUnit.SECONDS);
+        // 2秒遅れて開始し、10秒毎に繰り返しタスクを実行する
+        executor.scheduleAtFixedRate(task, 2L, 10L, TimeUnit.SECONDS);
+        executor.shutdown();
         System.out.println("[ Main ] finish");
     }
 }
