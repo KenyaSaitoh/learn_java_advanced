@@ -20,15 +20,15 @@ public class Person {
         return gender;
     }
     // フィールド値の設定用メソッド
-    public Person name(String name) {
+    public Person withName(String name) {
         this.name = name;
         return this;
     }
-    public Person age(int age) {
+    public Person withAge(int age) {
         this.age = age;
         return this;
     }
-    public Person gender(String gender) {
+    public Person withGender(String gender) {
         this.gender = gender;
         return this;
     }
