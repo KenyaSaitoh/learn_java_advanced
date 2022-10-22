@@ -20,12 +20,13 @@ public class ChannelClient {
 class ChannelClientThread implements Runnable {
     private String request;
     private static final int PORT = 55555;
-    private static final int BUF_SIZE = 1000;
+    private static final int BUF_SIZE = 100;
 
     public ChannelClientThread(String request) {
         this.request = request;
     }
 
+    @Override
     public void run() {
         // ByteBufferを作成する
         ByteBuffer requestBuffer = ByteBuffer.allocate(BUF_SIZE);
@@ -47,7 +48,17 @@ class ChannelClientThread implements Runnable {
             // レスポンスを読み込む
             System.out.println("[ Client ] Receive response");
             clientChannel.read(responseBuffer);
+            //byte[] strBytes = new byte[responseBuffer.remaining()];
+            //responseBuffer.get(strBytes);
+            //response = new String(strBytes);
+            //response = StandardCharsets.UTF_8.decode(responseBuffer).toString();
             response = new String(responseBuffer.array(), charset);
+
+            // TODO
+            byte[] bArray = responseBuffer.array();
+            for (byte b : bArray) {
+                System.out.println(b); // このように、文字列の後ろに0が埋まった状態になっている。。
+            }
             responseBuffer.clear();
 
         } catch (IOException ioe) {
@@ -56,5 +67,6 @@ class ChannelClientThread implements Runnable {
 
         // コンソールに出力する
         System.out.println("[ Client ] response => " + response);
+
     }
 }

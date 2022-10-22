@@ -5,10 +5,10 @@ import static pro.kensait.java.thread.util.ThreadUtil.*;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
-import java.nio.CharBuffer;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 public class SingleChannelServer {
     private static final int PORT = 55555;
@@ -55,8 +55,14 @@ public class SingleChannelServer {
             buffer.clear();
 
             // クライアントチャネルにByteBufferからデータを書き込む
-            buffer = charset.encode(CharBuffer.wrap(response));
+            //buffer = charset.encode(CharBuffer.wrap(response));
+            buffer = StandardCharsets.UTF_8.encode(response);
             clientChannel.write(buffer);
+
+            byte[] bArray = buffer.array();
+            for (byte b : bArray) {
+                System.out.println(b); // このように、文字列の後ろに0が埋まった状態になっている。。
+            }
 
         } catch(IOException ioe) {
             throw new RuntimeException(ioe);

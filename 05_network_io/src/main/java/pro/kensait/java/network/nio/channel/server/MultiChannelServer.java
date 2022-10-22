@@ -24,7 +24,7 @@ public class MultiChannelServer {
             while (true) {
                 System.out.println("[ Server ] start accept");
                 SocketChannel clientChannel = serverChannel.accept(); // ここで受信を待機する
-                new Thread(new ServerThread(clientChannel)).start();
+                new Thread(new ServerTask(clientChannel)).start();
                 System.out.println("[ Server ] Finish accept");
             }
         }
@@ -32,14 +32,15 @@ public class MultiChannelServer {
 }
 
 /* ======================================== */
-class ServerThread implements Runnable {
+class ServerTask implements Runnable {
     private static final int BUF_SIZE = 1000;
     private SocketChannel clientChannel;
 
-    public ServerThread(SocketChannel clientChannel) {
+    public ServerTask(SocketChannel clientChannel) {
         this.clientChannel = clientChannel;
     }
 
+    @Override
     public void run() {
         System.out.println("[ Server ] start thread");
 
