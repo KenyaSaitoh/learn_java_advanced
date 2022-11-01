@@ -8,6 +8,6 @@ public class Main1 {
         } catch (InterruptedException ie) {
             throw new RuntimeException(ie);
         }
-        System.out.println("[ Main ] Finish");
+        System.out.println("[ Main ] finish");
     }
 }

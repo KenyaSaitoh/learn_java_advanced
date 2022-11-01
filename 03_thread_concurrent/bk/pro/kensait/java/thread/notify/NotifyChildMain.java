@@ -27,7 +27,7 @@ class ParentThread extends Thread {
             throw new RuntimeException(ie);
         }
 
-        System.out.println("[ ParentThread ] Finish");
+        System.out.println("[ ParentThread ] finish");
     }
 }
 
@@ -47,7 +47,7 @@ class ChildThread extends Thread {
         synchronized(parent) {
             // ウェイトセットに入ったスレッド（1つだけ）に通知を送る
             parent.notify();
-            System.out.println("[ ChildThread ] Finish");
+            System.out.println("[ ChildThread ] finish");
         }
     }
 }

@@ -11,6 +11,6 @@ public class FooThread extends Thread {
     public void run() {
         System.out.println("[ FooThread ] start");
         Integer result = shared.getAndWaitData();
-        System.out.println("[ FooThread ] Finish, result => " + result);
+        System.out.println("[ FooThread ] finish, result => " + result);
     }
 }

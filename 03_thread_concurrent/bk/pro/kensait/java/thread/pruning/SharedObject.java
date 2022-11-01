@@ -21,7 +21,7 @@ public class SharedObject {
             throw new RuntimeException(ie);
         }
 
-        System.out.println("[ SharedObject#readProcess ] Finish, data => " + data);
+        System.out.println("[ SharedObject#readProcess ] finish, data => " + data);
         return data;
     }
 
@@ -38,6 +38,6 @@ public class SharedObject {
         System.out.println("[ SharedObject#writeProcess ] Notify to ReadProcess");
         notifyAll();
 
-        System.out.println("[ SharedObject#writeProcess ] Finish, data => " + data);
+        System.out.println("[ SharedObject#writeProcess ] finish, data => " + data);
     }
 }

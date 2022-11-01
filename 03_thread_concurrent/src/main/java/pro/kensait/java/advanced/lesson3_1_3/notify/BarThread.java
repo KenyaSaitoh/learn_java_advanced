@@ -18,6 +18,6 @@ public class BarThread extends Thread {
 
         // 共有インスタンスに結果を設定する
         shared.setAndNotifyData(result);
-        System.out.println("[ BarThread ] Finish");
+        System.out.println("[ BarThread ] finish");
     }
 }

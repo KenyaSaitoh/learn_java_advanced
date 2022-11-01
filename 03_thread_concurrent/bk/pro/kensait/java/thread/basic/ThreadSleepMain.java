@@ -9,6 +9,6 @@ public class ThreadSleepMain {
         } catch (InterruptedException ie) {
             throw new RuntimeException(ie);
         }
-        System.out.println("[ ThreadSleepMain ] Finish");
+        System.out.println("[ ThreadSleepMain ] finish");
     }
 }

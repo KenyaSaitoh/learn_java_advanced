@@ -28,6 +28,6 @@ class MyThread extends Thread {
     public void run() {
         System.out.println("[ MyThread ] start, property => " + property);
         sleepAWhile(timer);
-        System.out.println("[ MyThread ] Finish, property => " + property);
+        System.out.println("[ MyThread ] finish, property => " + property);
     }
 }

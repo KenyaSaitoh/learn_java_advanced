@@ -9,10 +9,10 @@ public class Main_Lambda {
             for (long i = 0; i < 100_000_000_000L; i++) { // 1000億回
                 total += data;
             }
-            System.out.println("[ Runnable ] Finish, total => " + total);
+            System.out.println("[ Runnable ] finish, total => " + total);
         });
         System.out.println("[ Main ] start");
         t.start();
-        System.out.println("[ Main ] Finish");
+        System.out.println("[ Main ] finish");
     }
 }

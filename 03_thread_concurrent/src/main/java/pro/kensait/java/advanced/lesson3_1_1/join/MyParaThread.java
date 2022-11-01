@@ -14,6 +14,6 @@ public class MyParaThread extends Thread {
     public void run() {
         System.out.println("[ MyParaThread ] start, name => " + getName());
         sleepAWhile(timer); // 指定されたミリ秒間、一時停止するユーティリティ
-        System.out.println("[ MyParaThread ] Finish, name => " + getName());
+        System.out.println("[ MyParaThread ] finish, name => " + getName());
     }
 }

@@ -12,6 +12,6 @@ public class ReadTask extends Thread {
         System.out.println("[ ReadTask#run ] start");
         System.out.println("[ ReadTask#run ] Call ReadProcess");
         int result = share.readProcess();
-        System.out.println("[ ReadTask#run ] Finish / result => " + result);
+        System.out.println("[ ReadTask#run ] finish / result => " + result);
     }
 }

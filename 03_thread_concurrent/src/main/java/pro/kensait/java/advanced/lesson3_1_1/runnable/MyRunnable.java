@@ -14,6 +14,6 @@ public class MyRunnable implements Runnable {
         for (long i = 0; i < 100_000_000_000L; i++) { // 1000億回
             total += data;
         }
-        System.out.println("[ MyRunnable ] Finish, total => " + total);
+        System.out.println("[ MyRunnable ] finish, total => " + total);
     }
 }

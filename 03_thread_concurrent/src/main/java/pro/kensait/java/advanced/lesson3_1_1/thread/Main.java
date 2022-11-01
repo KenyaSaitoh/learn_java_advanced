@@ -9,6 +9,6 @@ public class Main {
         System.out.println("[ Main ] start");
         // スレッドを起動する
         t.start();
-        System.out.println("[ Main ] Finish");
+        System.out.println("[ Main ] finish");
     }
 }

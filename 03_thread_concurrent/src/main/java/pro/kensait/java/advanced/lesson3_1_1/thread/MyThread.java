@@ -14,6 +14,6 @@ public class MyThread extends Thread {
         for (long i = 0; i < 100_000_000_000L; i++) { // 1000億回
             total += data;
         }
-        System.out.println("[ MyThread ] Finish, total => " + total);
+        System.out.println("[ MyThread ] finish, total => " + total);
     }
 }

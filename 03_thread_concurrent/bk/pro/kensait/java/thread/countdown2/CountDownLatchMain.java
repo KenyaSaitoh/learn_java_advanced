@@ -45,7 +45,7 @@ class ParentThread extends Thread {
         }
 
         // すべてのスレッドが終了したら、以下を実行する
-        System.out.println("[ ParentThread ] Finish, count => " +
+        System.out.println("[ ParentThread ] finish, count => " +
                 countDownLatch.getCount());
     }
 
@@ -72,7 +72,7 @@ class ChildThread extends Thread {
     public void run() {
         System.out.println("[ ChildThread(" + property + ") ] start");
         sleepAWhile(timer);
-        System.out.println("[ ChildThread(" + property + ") ] Finish");
+        System.out.println("[ ChildThread(" + property + ") ] finish");
 
         // 子スレッドが終了したので、親スレッドが保持する子スレッド数を減らす
         parent.minusChildThreadCount();

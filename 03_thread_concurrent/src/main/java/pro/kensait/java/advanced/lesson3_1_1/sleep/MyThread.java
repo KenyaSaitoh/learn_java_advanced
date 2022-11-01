@@ -9,6 +9,6 @@ public class MyThread extends Thread {
         } catch(InterruptedException ie) {
             throw new RuntimeException(ie);
         }
-        System.out.println("[ MyThread ] Finish");
+        System.out.println("[ MyThread ] finish");
     }
 }

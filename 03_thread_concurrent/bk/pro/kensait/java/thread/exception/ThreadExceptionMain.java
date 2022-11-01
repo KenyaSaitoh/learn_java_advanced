@@ -11,7 +11,7 @@ public class ThreadExceptionMain {
         } catch(RuntimeException re) {
             System.out.println("Catch Exception in main => " + re.getMessage());
         }
-        System.out.println("[ ThreadExceptionMain ] Finish");
+        System.out.println("[ ThreadExceptionMain ] finish");
     }
 }
 

@@ -6,6 +6,6 @@ public class Main {
         Thread t = new Thread(r); // スレッドを生成する
         System.out.println("[ Main ] start");
         t.start(); // スレッドを起動する
-        System.out.println("[ Main ] Finish");
+        System.out.println("[ Main ] finish");
     }
 }

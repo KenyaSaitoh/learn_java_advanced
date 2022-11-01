@@ -30,6 +30,6 @@ class MyRunnable implements Runnable {
     public void run() {
         System.out.println("[ MyRunnable ] start, property => " + property);
         sleepAWhile(timer);
-        System.out.println("[ MyRunnable ] Finish, property => " + property);
+        System.out.println("[ MyRunnable ] finish, property => " + property);
     }
 }

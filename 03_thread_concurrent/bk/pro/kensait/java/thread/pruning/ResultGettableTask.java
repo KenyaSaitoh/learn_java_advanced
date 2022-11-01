@@ -15,7 +15,7 @@ public class ResultGettableTask extends Thread {
         } catch (InterruptedException ie) {
             throw new RuntimeException(ie);
         }
-        result = "Task is Finish!";
+        result = "Task is finish!";
     }
 
     public String getResult() {

@@ -12,6 +12,6 @@ public class WriteTask extends Thread {
         System.out.println("[ WriteTask#run ] start");
         System.out.println("[ WriteTask#run ] Call WriteProcess");
         share.writeProcess();
-        System.out.println("[ WriteTask#run ] Finish");
+        System.out.println("[ WriteTask#run ] finish");
     }
 }

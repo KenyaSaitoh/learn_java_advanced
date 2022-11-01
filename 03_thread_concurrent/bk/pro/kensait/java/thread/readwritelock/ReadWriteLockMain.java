@@ -39,7 +39,7 @@ class ReadThread extends Thread {
     public void run() {
         System.out.println("[ ReadThread ] start");
         int result = share.readProcess();
-        System.out.println("[ ReadThread ] Finish, result => " + result);
+        System.out.println("[ ReadThread ] finish, result => " + result);
     }
 }
 
@@ -55,7 +55,7 @@ class WriteThread extends Thread {
     public void run() {
         System.out.println("[ WriteThread ] start");
         share.writeProcess();
-        System.out.println("[ WriteThread ] Finish");
+        System.out.println("[ WriteThread ] finish");
     }
 }
 

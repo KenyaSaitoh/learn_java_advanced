@@ -9,7 +9,7 @@ public class ThreadResultMain {
         try {
             // t1とジョインする。
             task.join();
-            System.out.println("===== THREAD 1 Finish =====");
+            System.out.println("===== THREAD 1 finish =====");
         } catch (InterruptedException ie) {
             throw new RuntimeException(ie);
         }

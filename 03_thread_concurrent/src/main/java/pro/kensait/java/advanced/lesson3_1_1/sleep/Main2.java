@@ -12,6 +12,6 @@ public class Main2 {
 
         // 割り込む
         t.interrupt();
-        System.out.println("[ Main ] Finish");
+        System.out.println("[ Main ] finish");
     }
 }

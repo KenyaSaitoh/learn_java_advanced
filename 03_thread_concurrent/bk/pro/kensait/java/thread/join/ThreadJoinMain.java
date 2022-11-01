@@ -33,6 +33,6 @@ class JoinThread extends Thread {
         // 意図的に3000ミリ秒～10000秒（ランダムに決定）スリープする
         sleepRandomTime(3000, 10000);
 
-        System.out.println("[ JoinThread ] Finish, property => " + property);
+        System.out.println("[ JoinThread ] finish, property => " + property);
     }
 }

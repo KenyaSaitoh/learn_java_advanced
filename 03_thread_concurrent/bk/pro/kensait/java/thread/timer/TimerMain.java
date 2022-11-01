@@ -18,7 +18,7 @@ public class TimerMain {
             sleepAWhile(1000);
             System.out.println("[ TimerMain ] Execute something...");
         }
-        System.out.println("[ TimerMain ] Finish");
+        System.out.println("[ TimerMain ] finish");
     }
 
     public void setStopFlag(boolean stopFlag) {
