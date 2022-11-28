@@ -16,13 +16,13 @@ public class FutureExceptionMain {
 
         try {
             String result = future.get();
-            System.out.println("result ---> " + result);
+            System.out.println("result => " + result);
         } catch(InterruptedException ie) {
             throw new RuntimeException(ie);
         } catch(ExecutionException ee) {
             throw new RuntimeException(ee);
         } catch(Exception e) {
-            System.out.println("mainメソッドで、例外をキャッチしました。");
+            System.out.println("mainメソッドで、例外をキャッチしました");
         } finally {
             executor.shutdown();
         }

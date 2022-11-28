@@ -1,4 +1,4 @@
-package pro.kensait.java.reflection;
+package pro.kensait.java.advanced.lesson9_1_2;
 
 import java.lang.reflect.Field;
 
@@ -14,7 +14,7 @@ public class ReflectionMain5 {
 
     public static void main(String[] args) {
         try {
-            // クラスオブジェクトを取得する。
+            // クラスオブジェクトを取得する
             Class clazz = Class.forName("pro.kensait.java.reflection.ReflectionTarget5");
             Object obj = clazz.newInstance();
 
@@ -22,17 +22,17 @@ public class ReflectionMain5 {
             // 定数
             Field field1 = clazz.getDeclaredField("versionNumber");
             String fieldValue1 = (String)field1.get(obj); // 引数として渡すObject型変数は、対象クラスのオブジェクト
-            System.out.println("versionNumber ---> " + fieldValue1);
+            System.out.println("versionNumber => " + fieldValue1);
 
             // インスタンスフィールド（プリミティブ型）
             Field field2 = clazz.getDeclaredField("subValue");
             int fieldValue2 = field2.getInt(obj); // 引数として渡すObject型変数は、対象クラスのオブジェクト
-            System.out.println("subValue ---> " + fieldValue2);
+            System.out.println("subValue => " + fieldValue2);
 
             // インスタンスフィールド（クラス型）
             Field field3 = clazz.getDeclaredField("subName");
             String fieldValue3 = (String)field3.get(obj); // 引数として渡すObject型変数は、対象クラスのオブジェクト
-            System.out.println("subName ---> " + fieldValue3);
+            System.out.println("subName => " + fieldValue3);
 
         } catch (Exception e) {
             throw new RuntimeException(e);

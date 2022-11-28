@@ -95,7 +95,7 @@ class SharedObject {
         sleepAWhile(5000);
 
         try {
-            // dataフィールドに値を書き込む。
+            // dataフィールドに値を書き込む
             data = data + 10;
             System.out.println("[ SharedObject#writeProcess ] data => " + data);
         } finally {

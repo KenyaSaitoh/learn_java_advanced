@@ -23,7 +23,7 @@ public class FutureTaskExceptionMain {
             ThreadUtil.sleepAWhile(3000);
         }
         Throwable exception = futureTask.getException();
-        System.out.println("exception ---> " + exception);
+        System.out.println("exception => " + exception);
 
         executor.shutdown();
     }
@@ -49,7 +49,7 @@ class MyFutureTask<T> extends FutureTask<T> {
         System.out.println("[ MyFutureTask<T>#done ]");
         try {
             T result = this.get();
-            System.out.println("result ---> " + result);
+            System.out.println("result => " + result);
         } catch(InterruptedException ie) {
             throw new RuntimeException(ie);
         } catch(ExecutionException ee) {

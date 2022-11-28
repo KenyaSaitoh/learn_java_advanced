@@ -48,7 +48,7 @@ public class Main_SingleServer {
 
             // リクエストをByteBufferからデコードし、何らかの業務処理を行う
             String request = StandardCharsets.UTF_8.decode(requestBuffer).toString();
-            String response = "Hello! 私は" + request + "です。";
+            String response = "Hello! 私は" + request + "です";
             sleepAWhile(2000);
 
             // レスポンスをByteBufferに追加する

@@ -1,4 +1,4 @@
-package pro.kensait.java.reflection;
+package pro.kensait.java.advanced.lesson9_1_2;
 
 import java.util.Date;
 
@@ -19,6 +19,6 @@ public class ReflectionMain8 {
         System.out.println(Integer.class.isInstance(i2));
         System.out.println(i1.getClass().equals(Integer.class));
         
-        // nullに対してgetClass()は呼べないので、null値の元の型を調べる方法は、多分ない。
+        // nullに対してgetClass()は呼べないので、null値の元の型を調べる方法は、多分ない
     }
 }

@@ -13,7 +13,7 @@ public class RunnableTask implements Runnable {
     public void run() {
         System.out.println("[ RunnableCommand ] property => " + property);
 
-        // 意図的に3000ミリ秒～15000秒（ランダムに決定）スリープする。
+        // 意図的に3000ミリ秒～15000秒（ランダムに決定）スリープする
         sleepRandomTime(3000, 15000);
 
         int length = property.length();

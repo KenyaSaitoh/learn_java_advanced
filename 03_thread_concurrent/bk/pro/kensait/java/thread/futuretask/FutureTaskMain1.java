@@ -17,7 +17,7 @@ public class FutureTaskMain1 {
 
         try {
             String result = futureTask.get();
-            System.out.println("result ---> " + result);
+            System.out.println("result => " + result);
         } catch(InterruptedException ie) {
             throw new RuntimeException(ie);
         } catch(ExecutionException ee) {

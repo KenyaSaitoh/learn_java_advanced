@@ -11,7 +11,7 @@ public class RecursiveCountMain2 {
         System.out.println(sum);
     }
 
-    // こっちは変数sumが不要。よりリカーシブっぽい。
+    // こっちは変数sumが不要よりリカーシブっぽい
     private static int calc(List<Integer> list, int i) {
         if (i < list.size()) {
             return list.get(i) + calc(list, ++i);

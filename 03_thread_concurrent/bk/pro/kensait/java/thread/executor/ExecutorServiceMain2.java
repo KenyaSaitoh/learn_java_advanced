@@ -22,8 +22,8 @@ public class ExecutorServiceMain2 {
         executor.execute(command3);
 
         // shutdownを呼び出した後、command4を追加しようとすると例外
-        // （java.util.concurrent.RejectedExecutionException）が発生する。
-        // ただし、command1～3は実行される。
+        // （java.util.concurrent.RejectedExecutionException）が発生する
+        // ただし、command1～3は実行される
         // executor.shutdown();
 
         MyCommand command4 = new MyCommand("4");
@@ -36,7 +36,7 @@ public class ExecutorServiceMain2 {
         @SuppressWarnings("unused")
         List<Runnable> commandList = executor.shutdownNow();
 
-        /* 以下のようにしても何も表示されない。おかしいな。。。
+        /* 以下のようにしても何も表示されないおかしいな
         for (Runnable r: commandList) {
             MyCommand command = (MyCommand)r;
             System.out.println(command.getValue());

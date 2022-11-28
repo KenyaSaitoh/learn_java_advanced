@@ -23,7 +23,7 @@ public class ScheduledExecutorServiceMain {
             executor.schedule(command4, 8L, TimeUnit.SECONDS);
         } finally {
             // ScheduledExecutorServiceは、Runnableの投入を待ち続けるため、
-            // shutdownを呼び出さないと、プログラムが終了しない。
+            // shutdownを呼び出さないと、プログラムが終了しない
             executor.shutdown();
         }
     }

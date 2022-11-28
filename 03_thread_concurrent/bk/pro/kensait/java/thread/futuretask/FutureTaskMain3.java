@@ -42,7 +42,7 @@ class MyFutureTask<T> extends FutureTask<T> {
         System.out.println("[ MyFutureTask<T>#done ]");
         try {
             T result = this.get();
-            System.out.println("result ---> " + result);
+            System.out.println("result => " + result);
         } catch(InterruptedException ie) {
             throw new RuntimeException(ie);
         } catch(ExecutionException ee) {

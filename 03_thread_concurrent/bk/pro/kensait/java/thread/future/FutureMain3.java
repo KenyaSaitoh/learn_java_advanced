@@ -42,7 +42,7 @@ public class FutureMain3 {
                     futureList.remove(future);
                     try {
                         String result = future.get();
-                        System.out.println("result ---> " + result);
+                        System.out.println("result => " + result);
                     } catch (InterruptedException ie) {
                         throw new RuntimeException(ie);
                     } catch (ExecutionException ee) {
@@ -52,12 +52,12 @@ public class FutureMain3 {
             }
 
             long count = executor.getActiveCount();
-            System.out.println("free thread count ---> " + count);
+            System.out.println("free thread count => " + count);
             ThreadUtil.sleepAWhile(1000);
 
             // ActiveCountが0になっても、Futureが残っている可能性があるので、
             // すべてのワーカの仕事が終わったかどうかには、
-            // Futureの数を調べる必要がある。
+            // Futureの数を調べる必要がある
             if (futureList.size() == 0) {
                 executor.shutdown();
                 break LOOP;

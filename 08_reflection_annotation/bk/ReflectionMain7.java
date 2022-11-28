@@ -1,4 +1,4 @@
-package pro.kensait.java.reflection;
+package pro.kensait.java.advanced.lesson9_1_2;
 
 import java.lang.reflect.Method;
 
@@ -9,7 +9,7 @@ public class ReflectionMain7 {
     }
 
     private void executeTask() {
-        // 以下のいずれもmethodはnullになる。
+        // 以下のいずれもmethodはnullになる
         // Method method = this.getClass().getEnclosingMethod();
         // Method method = new Object().getClass().getEnclosingMethod();
 

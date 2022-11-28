@@ -15,7 +15,7 @@ public class MyCommand implements Callable<String> {
     public String call() throws Exception {
         System.out.println("[ MyCommand#run ] start (" + property + ")");
 
-        // 意図的に3000ミリ秒～20000秒（ランダムに決定）スリープする。
+        // 意図的に3000ミリ秒～20000秒（ランダムに決定）スリープする
         try {
             ThreadUtil.sleepRandomTime(3000, 20000);
         } catch(RuntimeException re) {

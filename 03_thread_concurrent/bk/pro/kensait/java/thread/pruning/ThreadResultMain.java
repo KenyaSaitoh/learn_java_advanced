@@ -7,7 +7,7 @@ public class ThreadResultMain {
         task.start();
 
         try {
-            // t1とジョインする。
+            // t1とジョインする
             task.join();
             System.out.println("===== THREAD 1 finish =====");
         } catch (InterruptedException ie) {

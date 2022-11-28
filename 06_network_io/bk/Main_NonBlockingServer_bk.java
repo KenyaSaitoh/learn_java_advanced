@@ -119,7 +119,7 @@ public class Main_NonBlockingServer_bk {
         // ByteBufferからデータを取り出し、何らかの業務処理を行う
         Charset charset = StandardCharsets.UTF_8;
         String request = charset.decode(buffer).toString();
-        String response = "Hello! 私は" + request + "です。";
+        String response = "Hello! 私は" + request + "です";
         //sleepAWhile(3000);
         System.out.println("[ Server#write ] response => " + response);
 

@@ -27,7 +27,7 @@ public class Main_SingleServer {
 
                 // リクエストをByteBufferから取り出す
                 String request = StandardCharsets.UTF_8.decode(buffer).toString();
-                System.out.println("Hello! 私は" + request + "です。");
+                System.out.println("Hello! 私は" + request + "です");
             }
 
         } catch(IOException ioe) {

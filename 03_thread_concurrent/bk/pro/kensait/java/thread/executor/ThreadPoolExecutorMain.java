@@ -36,7 +36,7 @@ public class ThreadPoolExecutorMain {
 
         } finally {
             // ThreadPoolExecutorは、Runnableの投入を待ち続けるため、
-            // shutdownを呼び出さないと、プログラムが終了しない。
+            // shutdownを呼び出さないと、プログラムが終了しない
             executor.shutdown();
         }
     }

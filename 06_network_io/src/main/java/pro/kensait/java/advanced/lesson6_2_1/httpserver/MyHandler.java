@@ -58,7 +58,7 @@ public class MyHandler implements HttpHandler {
         if (personName == null || personName.equals("")) {
             resBody = "Hello!";
         } else {
-            resBody = "Hello! 私は" + personName + "です。";
+            resBody = "Hello! 私は" + personName + "です";
         }
 
         // Content-Length以外のレスポンスヘッダを設定する
