@@ -1,15 +1,15 @@
-package pro.kensait.java.advanced.lesson9_1_2;
+package pro.kensait.java.advanced.lesson8_2_1;
 
 public class Customer {
     // フィールド
     private Integer id;
-    private String name;
+    private String customerName;
     private GenderType gender;
     private String address;
     // コンストラクタ
-    public Customer(Integer id, String name) {
+    public Customer(Integer id, String customerName) {
         this.id = id;
-        this.name = name;
+        this.customerName = customerName;
     }
     // アクセサメソッド
     public Integer getId() {
@@ -18,11 +18,11 @@ public class Customer {
     public void setId(Integer id) {
         this.id = id;
     }
-    public String getName() {
-        return name;
+    public String getCustomerName() {
+        return customerName;
     }
-    public void setName(String name) {
-        this.name = name;
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
     public GenderType getGender() {
         return gender;
@@ -38,7 +38,7 @@ public class Customer {
     }
     @Override
     public String toString() {
-        return "Customer [id=" + id + ", name=" + name + ", gender=" + gender
+        return "Customer [id=" + id + ", customerName=" + customerName + ", gender=" + gender
                 + ", address=" + address + "]";
     }
 }

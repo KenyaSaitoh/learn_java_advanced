@@ -1,4 +1,4 @@
-package pro.kensait.java.advanced.lesson9_1_2;
+package pro.kensait.java.advanced.lesson8_2_1;
 
 import java.util.Date;
 
@@ -10,7 +10,7 @@ public class Greeting {
         return "No!";
     }
     public String sayHello(String name, int age) {
-        return "Hello! 私は" + name + "、" + age + "歳です";
+        return "Hello! 私は" + name + "、" + age + "歳です。";
     }
     static Date now; 
     static {

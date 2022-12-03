@@ -1,11 +1,11 @@
-package pro.kensait.java.advanced.lesson9_1_2;
+package pro.kensait.java.advanced.lesson8_2_1;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
-public class Main_Reflection {
+public class Main_MetaInfo {
     public static void main(String[] args) throws Exception {
         // Classインスタンスを取得する
         Class<?> clazz = Class.forName("java.lang.Integer");

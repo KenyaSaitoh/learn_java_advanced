@@ -1,30 +1,30 @@
-package pro.kensait.java.advanced.lesson9_1_2;
+package pro.kensait.java.advanced.lesson8_2_1;
 
 public class Person {
     // フィールド
-    private String name;
+    private String personName;
     private int age;
     private GenderType gender;
     private String address;
     // コンストラクタ
     public Person(String name, int age, GenderType gender, String address) {
         super();
-        this.name = name;
+        this.personName = name;
         this.age = age;
         this.gender = gender;
         this.address = address;
     }
     // アクセサメソッド
-    public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
+	public String getPersonName() {
+        return personName;
+    }
+    public void setPersonName(String personName) {
+        this.personName = personName;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
 		this.age = age;
 	}
     public GenderType getGender() {
@@ -41,7 +41,7 @@ public class Person {
     }
     @Override
     public String toString() {
-        return "Person [name=" + name + ", age=" + age + ", gender=" + gender
+        return "Person [personName=" + personName + ", age=" + age + ", gender=" + gender
                 + ", address=" + address + "]";
     }
 }

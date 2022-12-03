@@ -1,24 +1,24 @@
-package pro.kensait.java.advanced.lesson9_1_2;
+package pro.kensait.java.advanced.lesson8_2_1;
 
 import java.lang.reflect.Method;
 
-public class Main_MethodInvocation3 {
+public class Main_MethodInvocation2 {
     public static void main(String[] args) throws Exception {
         // Classインスタンスを取得する
         Class<?> clazz = Class.forName(
-                "pro.kensait.java.advanced.lesson9_1_2.Greeting");
+                "pro.kensait.java.advanced.lesson8_2_1.Greeting");
 
         // メソッド実行対象クラスのインスタンスを生成する
         Object target = clazz.getDeclaredConstructor().newInstance();
         
         // Methodインスタンスを取得する
-        Method method = clazz.getDeclaredMethod("sayHello", String.class, Integer.TYPE);
+        Method method = clazz.getDeclaredMethod("sayNo");
+
+        // privateメソッドをアクセス可能にする
+        method.setAccessible(true);
 
         // メソッドを実行する
-        Object[] params = new Object[2];
-        params[0] = "Alice";
-        params[1] = 25;
-        Object result = method.invoke(target, params);
+        Object result = method.invoke(target);
 
         // 戻り値を表示する
         System.out.println(result);
