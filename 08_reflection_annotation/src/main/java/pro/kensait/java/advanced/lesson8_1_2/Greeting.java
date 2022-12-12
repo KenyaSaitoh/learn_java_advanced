@@ -3,13 +3,13 @@ package pro.kensait.java.advanced.lesson8_1_2;
 import java.util.Date;
 
 public class Greeting {
-    public String sayYes() {
+    public String getYes() {
         return "Yes!";
     }
-    private String sayNo() {
+    private String getNo() {
         return "No!";
     }
-    public String sayHello(String name, int age) {
+    public String getHello(String name, int age) {
         return "Hello! 私は" + name + "、" + age + "歳です";
     }
     static Date now; 
