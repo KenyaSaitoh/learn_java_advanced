@@ -1,9 +1,0 @@
-package pro.kensait.java.advanced.lesson6_1_2.tcp.client;
-
-public class Main_MultiClient {
-    public static void main(String[] args) {
-        new Thread(new ClientTask("Alice")).start();
-        new Thread(new ClientTask("Bob")).start();
-        new Thread(new ClientTask("Carol")).start();
-    }
-}
