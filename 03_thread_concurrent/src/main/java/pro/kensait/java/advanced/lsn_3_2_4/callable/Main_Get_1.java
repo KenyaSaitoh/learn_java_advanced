@@ -8,7 +8,7 @@ import java.util.concurrent.Future;
 public class Main_Get_1 {
     public static void main(String[] args) {
         ExecutorService executor = Executors.newSingleThreadExecutor();
-        CallableTask task = new CallableTask("foo", 7);
+        CallableTask task = new CallableTask("foo", 8);
 
         try {
             System.out.println("[ Main ] starting task...");

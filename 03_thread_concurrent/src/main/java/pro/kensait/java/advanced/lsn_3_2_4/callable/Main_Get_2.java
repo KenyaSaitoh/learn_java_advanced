@@ -11,7 +11,7 @@ public class Main_Get_2 {
     public static void main(String[] args) {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         String name = "foo"; // 名前
-        int count = 7; // カウント
+        int count = 8; // カウント
 
         try {
             System.out.println("[ Main ] starting task...");
