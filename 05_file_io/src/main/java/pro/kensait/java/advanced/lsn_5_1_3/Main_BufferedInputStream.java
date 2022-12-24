@@ -1,28 +1,24 @@
 package pro.kensait.java.advanced.lsn_5_1_3;
 
 import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class Main_BufferedOutputStream {
+public class Main_BufferedInputStream {
     public static void main(String[] args) {
-        Path src = Paths.get("java_logo1.jpg");
-        Path dest = Paths.get("java_logo2.jpg");
+        Path path = Paths.get("java_logo1.jpg");
 
-        try(InputStream is = Files.newInputStream(src);
-                OutputStream os = Files.newOutputStream(dest)) {
+        try(InputStream is = Files.newInputStream(path)) {
             BufferedInputStream bis = new BufferedInputStream(is);
-            BufferedOutputStream bos = new BufferedOutputStream(os);
             byte[] buf = new byte[10];
             while (bis.read(buf) != -1) {
-                bos.write(buf);
+                for (byte b : buf) {
+                    System.out.println("読み込んだバイトデータ => " + b);
+                }
             }
-            bos.flush(); // これがないと書き込まれない
         } catch (IOException ioe) {
             throw new RuntimeException(ioe);
         }
