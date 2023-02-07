@@ -16,7 +16,7 @@ public class Main {
             Future<?> fooFuture = executor.submit(fooTask);
             fooFuture.get();
             System.out.println("[ Main ] foo finish ");
-            doSomething(3); // 3秒間何かをする
+            doSomething(5); // 5秒間何かをする
             System.out.println("[ Main ] finish");
         } catch(InterruptedException | ExecutionException ex) {
             throw new RuntimeException(ex);

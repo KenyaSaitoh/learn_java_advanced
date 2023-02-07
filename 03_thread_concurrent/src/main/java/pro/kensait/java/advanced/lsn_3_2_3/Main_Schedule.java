@@ -13,7 +13,6 @@ public class Main_Schedule {
         // ScheduledExecutorServiceは、Runnableの投入を待ち続けるため、
         // shutdownを呼び出さないと、プログラムが終了しない
         System.out.println("[ Main ] shutdown");
-        executor.shutdown();
         System.out.println("[ Main ] finish");
     }
 }

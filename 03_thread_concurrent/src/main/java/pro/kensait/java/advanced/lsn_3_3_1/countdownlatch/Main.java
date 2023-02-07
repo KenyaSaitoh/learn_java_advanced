@@ -24,9 +24,9 @@ public class Main {
         System.out.println("[ Main ] proceeding all threads...");
         startSignal.countDown();
 
-        // 何らかの処理を行う（5秒間）
+        // 何らかの処理を行う（4秒間）
         System.out.println("[ Main ] do something...");
-        doSomething(5);
+        doSomething(4);
 
         // Workerスレッドの処理終了を待つ
         System.out.println("[ Main ] waiting for all threads to finish...");

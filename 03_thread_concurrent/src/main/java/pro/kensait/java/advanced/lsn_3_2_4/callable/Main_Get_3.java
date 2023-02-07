@@ -15,7 +15,7 @@ public class Main_Get_3 {
         try {
             System.out.println("[ Main ] starting task...");
             Future<Integer> future = executor.submit(task);
-            doSomething(3);
+            doSomething(5);
             Integer result = future.get();
             System.out.println("result => " + result);
             System.out.println("[ Main ] finish");   

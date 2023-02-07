@@ -11,7 +11,6 @@ public class Main_FixedRate {
         System.out.println("[ Main ] starting task...");
         // 2秒遅れて開始し、10秒毎に繰り返しタスクを実行する
         executor.scheduleAtFixedRate(task, 2L, 10L, TimeUnit.SECONDS);
-        executor.shutdown();
         System.out.println("[ Main ] finish");
     }
 }
