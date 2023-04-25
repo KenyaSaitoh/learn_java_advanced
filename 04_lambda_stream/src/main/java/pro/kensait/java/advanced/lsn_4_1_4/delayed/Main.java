@@ -8,9 +8,9 @@ public class Main {
         info(() -> "THIS IS INFO LOG.");
     }
 
-    static void info(LogSupplier ls) {
+    static void info(LogSupplier ls) { //【1】
         if (infoLevel) {
-            System.out.println("[ INFO ] " + ls.getLog());
+            System.out.println("[ INFO ] " + ls.getLog()); //【2】
         }
     }
 }

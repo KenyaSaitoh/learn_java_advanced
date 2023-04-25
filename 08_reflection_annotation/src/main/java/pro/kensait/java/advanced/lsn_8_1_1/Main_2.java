@@ -9,10 +9,10 @@ import java.util.Properties;
 public class Main_2 {
     public static void main(String[] args) {
         Properties props = new Properties();
-        ClassLoader classloader = Thread.currentThread().getContextClassLoader();
+        ClassLoader classloader = Thread.currentThread().getContextClassLoader(); //【1】
         try (InputStream is = classloader
-                .getResourceAsStream("config/MyResource.properties")) {
-            props.load(new InputStreamReader(is, StandardCharsets.UTF_8));
+                .getResourceAsStream("config/MyResource.properties")) { //【2】
+            props.load(new InputStreamReader(is, StandardCharsets.UTF_8)); //【3】
             String name = props.getProperty("name");
             int age = Integer.parseInt(props.getProperty("age"));
             String address = props.getProperty("address");

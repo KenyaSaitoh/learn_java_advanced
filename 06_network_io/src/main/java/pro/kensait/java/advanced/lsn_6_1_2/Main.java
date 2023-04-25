@@ -5,28 +5,28 @@ import java.nio.charset.StandardCharsets;
 
 public class Main {
     public static void main(String[] args) {
-        //100バイトのバッファを持つByteBufferを生成する
+        //【1】100バイトのバッファを持つByteBufferを生成する
         ByteBuffer buffer = ByteBuffer.allocate(100);
 
-        // 数値（int型）をByteBufferに書き込む（4バイト）
+        //【2】数値（int型）をByteBufferに書き込む（4バイト）
         buffer.putInt(10);
 
-        // 数値（long型）をByteBufferに書き込む（8バイト）
+        //【3】数値（long型）をByteBufferに書き込む（8バイト）
         buffer.putLong(1000L);
 
         // 文字列からバイト列を生成し、ByteBufferに書き込む（14バイト）
         buffer.put("ABCDEFGHIJKLMN".getBytes(StandardCharsets.UTF_8));
         System.out.println("書き込み後残りバイト => " + buffer.remaining()); // 100-26=74
 
-        // ByteBufferをフリップする
+        //【4】ByteBufferをフリップする
         buffer.flip();
         System.out.println("flip後残りバイト => " + buffer.remaining()); // 26-0=26
 
-        // 最初に書き込んだ数値（int型）を取り出して表示する（0バイト目から4バイト分）
+        //【5】最初に書き込んだ数値（int型）を取り出して表示する（0バイト目から4バイト分）
         System.out.println("int型数値 => " + buffer.getInt());
         System.out.println("4バイト取得後の残りバイト => " + buffer.remaining()); // 26-4=22
 
-        // 2度目に書き込んだ数値（long型）を取り出して表示する（4バイト目から8バイト分）
+        //【6】2度目に書き込んだ数値（long型）を取り出して表示する（4バイト目から8バイト分）
         System.out.println("long型数値 => " + buffer.getLong());
         System.out.println("8バイト取得後の残りバイト => " + buffer.remaining()); // 22-8=14
 

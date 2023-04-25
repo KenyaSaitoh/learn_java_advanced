@@ -8,24 +8,24 @@ import java.nio.charset.StandardCharsets;
 
 public class Main {
     public static void main(String[] args) {
-        // 新しいByteBufferを割り当てる（リクエスト用）
+        //【1】新しいByteBufferを割り当てる（リクエスト用）
         ByteBuffer buffer = ByteBuffer.allocate(1000);
 
         try (
-                // DatagramChannelをオープンする
+                //【2】DatagramChannelをオープンする
                 DatagramChannel channel = DatagramChannel.open()) {
 
-            // ソケットアドレス（ポート番号）をバインドする
+            //【3】ソケットアドレス（ポート番号）をバインドする
             channel.bind(new InetSocketAddress(55555));
 
-            while (true) {
-                // 受信を待機する
+            while (true) { //【4】
+                //【5】受信を待機する
                 channel.receive(buffer);
 
-                // ByteBufferをフリップする
+                //【6】ByteBufferをフリップする
                 buffer.flip();
 
-                // リクエストをByteBufferから取り出す
+                //【7】リクエストをByteBufferから取り出す
                 String request = StandardCharsets.UTF_8.decode(buffer).toString();
                 System.out.println("Hello! 私は" + request + "です");
             }

@@ -7,7 +7,7 @@ import java.util.concurrent.CyclicBarrier;
 
 public class Worker extends Thread {
     private String name;
-    private CyclicBarrier barrier;
+    private CyclicBarrier barrier; //【1】
 
     public Worker(String name, CyclicBarrier barrier) {
         this.name = name;
@@ -21,7 +21,7 @@ public class Worker extends Thread {
             System.out.println("[ " + name + " ] do something...");
             doSomething(2, 8); // 2～8秒（ランダム）何かをする
 
-            // バリアーポイントに到達したため待機する
+            //【2】バリアーポイントに到達したため待機する
             System.out.println("[ " + name + " ] awaiting...");
             barrier.await();
 

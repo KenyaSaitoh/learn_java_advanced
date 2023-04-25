@@ -17,14 +17,14 @@ public class DeadlockThread extends Thread {
     @Override
     public void run() {
         while (true) {
-            // まず共有インスタンス1をロックする
+            //【1】まず共有インスタンス1をロックする
             synchronized (shared1) {
                 // 共有インスタンス1の値にスレッドが保持している加算値を足し込む
                 System.out.println("[ " + name + ", shared1 ] " + shared1.getData());
                 shared1.addData(num);
                 System.out.println("[ " + name + ", shared1 ] " + shared1.getData());
 
-                // 共通インスタンス1にロックをかけたまま、共有インスタンス2をロックする
+                //【2】共通インスタンス1にロックをかけたまま、共有インスタンス2をロックする
                 synchronized (shared2) { 
                     // 共有インスタンス2の値にスレッドが保持している加算値を足し込む
                     System.out.println("[ " + name + ", shared2 ] " + shared2.getData());

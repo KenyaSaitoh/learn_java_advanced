@@ -13,12 +13,12 @@ public class Main_InstanceCopy {
         Class<Customer> customerClazz = Customer.class;
 
         // 氏名のマッチングを行う
-        Field personNameField = personClazz.getDeclaredField("personName");
-        Field customerNameField = customerClazz.getDeclaredField("customerName");
-        personNameField.setAccessible(true);
-        customerNameField.setAccessible(true);
+        Field personNameField = personClazz.getDeclaredField("personName"); //【1】
+        Field customerNameField = customerClazz.getDeclaredField("customerName"); //【2】
+        personNameField.setAccessible(true); //【3】
+        customerNameField.setAccessible(true); //【4】
 
-        if (! Objects.equals(personNameField.get(p), customerNameField.get(c))) {
+        if (! Objects.equals(personNameField.get(p), customerNameField.get(c))) { //【5】
             return;
         }
 
@@ -26,10 +26,10 @@ public class Main_InstanceCopy {
         PERSON : for (Field personField : personClazz.getDeclaredFields()) {
             for (Field customerField : customerClazz.getDeclaredFields()) {
                 System.out.println(personField.getName() + "/" + customerField.getName());
-                if (personField.getName().equals(customerField.getName())) {
-                    personField.setAccessible(true);
-                    customerField.setAccessible(true);
-                    customerField.set(c, personField.get(p));
+                if (personField.getName().equals(customerField.getName())) { //【1】
+                    personField.setAccessible(true); //【2】
+                    customerField.setAccessible(true); //【3】
+                    customerField.set(c, personField.get(p)); //【4】
                     continue PERSON;
                 }
             }

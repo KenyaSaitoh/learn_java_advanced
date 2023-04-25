@@ -14,9 +14,9 @@ public class Main_Get_3 {
 
         try {
             System.out.println("[ Main ] starting task...");
-            Future<Integer> future = executor.submit(task);
-            doSomething(5);
-            Integer result = future.get();
+            Future<Integer> future = executor.submit(task); //【1】8秒かかる処理を起動
+            doSomething(5); //【2】5秒間、何らかの処理を行う
+            Integer result = future.get(); //【3】待機してから結果を取得する（3秒待機）
             System.out.println("result => " + result);
             System.out.println("[ Main ] finish");   
         } catch(InterruptedException | ExecutionException ex) {

@@ -9,9 +9,9 @@ public class Main_Collection {
         {
             System.out.println("***** snippet_1 *****");
             List<Sales> salesList = SalesHolder.getSalesList();
-            List<Sales> resultList = salesList.stream()
-                    .filter(sales -> sales.getProductName().startsWith("A"))
-                    .collect(Collectors.toList());
+            List<Sales> resultList = salesList.stream() //【1】
+                    .filter(sales -> sales.getProductName().startsWith("A")) //【2】
+                    .collect(Collectors.toList()); //【3】
             System.out.println(resultList);
         }
         {
@@ -19,10 +19,10 @@ public class Main_Collection {
             List<Sales> salesList = SalesHolder.getSalesList();
             Map<Integer, Integer> resultMap = salesList.stream()
                     .filter(sales -> sales.getProductName().startsWith("A"))
-                    .collect(Collectors.toMap(
-                            Sales::getId,
-                            Sales::getCount,
-                            (oldVal, newVal) -> newVal));
+                    .collect(Collectors.toMap( //【1】
+                            Sales::getId, //【2】
+                            Sales::getCount, //【3】
+                            (oldVal, newVal) -> newVal)); //【4】
             System.out.println(resultMap);
         }
     }

@@ -13,8 +13,8 @@ public class Main {
         RunnableTask fooTask = new RunnableTask("foo", 8);
 
         try {
-            Future<?> fooFuture = executor.submit(fooTask);
-            fooFuture.get();
+            Future<?> fooFuture = executor.submit(fooTask); //【1】Runnableタスクを投入
+            fooFuture.get(); //【2】
             System.out.println("[ Main ] foo finish ");
             doSomething(5); // 5秒間何かをする
             System.out.println("[ Main ] finish");

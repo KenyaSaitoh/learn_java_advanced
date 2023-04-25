@@ -8,7 +8,7 @@ import java.util.List;
 public class Main_2 {
     public static void main(String[] args) {
         List<String> strList = Arrays.asList("Japan", "USA", "France");
-        Collections.sort(strList, new Comparator<String>() {
+        Collections.sort(strList, new Comparator<String>() { //【1】
             @Override
             public int compare(String s1, String s2) {
                 return s1.length() - s2.length();

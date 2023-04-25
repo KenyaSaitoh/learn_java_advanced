@@ -9,12 +9,12 @@ import java.nio.file.Paths;
 
 public class Main_BufferedInputStream {
     public static void main(String[] args) {
-        Path path = Paths.get("java_logo1.jpg");
+        Path path = Paths.get("java_logo1.jpg"); //【1】
 
-        try(InputStream is = Files.newInputStream(path)) {
-            BufferedInputStream bis = new BufferedInputStream(is);
-            byte[] buf = new byte[10];
-            while (bis.read(buf) != -1) {
+        try(InputStream is = Files.newInputStream(path)) { //【2】
+            BufferedInputStream bis = new BufferedInputStream(is); //【3】
+            byte[] buf = new byte[10]; //【4】
+            while (bis.read(buf) != -1) { //【5】
                 for (byte b : buf) {
                     System.out.println("読み込んだバイトデータ => " + b);
                 }

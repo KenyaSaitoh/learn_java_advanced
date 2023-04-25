@@ -13,7 +13,7 @@ public class Main_NoFunction {
         if (50 < x) {
             throw new RuntimeException("引数不正");
         }
-        int value = x + y;
+        int value = x + y; //【1】
         if (100 < value) {
             throw new RuntimeException("計算結果不正");
         }
@@ -24,7 +24,7 @@ public class Main_NoFunction {
         if (50 < x) {
             throw new RuntimeException("引数不正");
         }
-        int value = x - y;
+        int value = x - y; //【2】
         if (100 < value) {
             throw new RuntimeException("計算結果不正");
         }

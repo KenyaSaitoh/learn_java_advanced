@@ -9,14 +9,14 @@ import java.nio.file.Paths;
 
 public class Main_BufferedWriter {
     public static void main(String[] args) {
-        Path src = Paths.get("hoge/fuga/foo.txt");
-        Path dest = Paths.get("hoge/fuga/foo2.txt");
+        Path src = Paths.get("hoge/fuga/foo.txt"); //【1】
+        Path dest = Paths.get("hoge/fuga/foo2.txt"); //【2】
 
         try (BufferedReader br = Files.newBufferedReader(src);
-                BufferedWriter bw = Files.newBufferedWriter(dest)) {
+                BufferedWriter bw = Files.newBufferedWriter(dest)) { //【3】
             String line;
             while ((line = br.readLine()) != null) {
-                bw.write(line + System.lineSeparator());
+                bw.write(line + System.lineSeparator()); //【4】
             }
         } catch (IOException ioe) {
             throw new RuntimeException(ioe);

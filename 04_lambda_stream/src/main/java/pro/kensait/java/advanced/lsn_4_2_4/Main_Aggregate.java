@@ -18,8 +18,8 @@ public class Main_Aggregate {
             System.out.println("***** snippet_2 *****");
             List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
             long sum = list.stream()
-                    .mapToInt(x -> x * 10)
-                    .sum();
+                    .mapToInt(x -> x * 10) //【1】
+                    .sum(); //【2】
             System.out.println(sum);
         }
         {
@@ -28,8 +28,8 @@ public class Main_Aggregate {
             OptionalDouble opt = list.stream()
                     .filter(x -> 5 < x)
                     .mapToInt(x -> x)
-                    .average();
-            double avg = opt.orElse(0.0d);
+                    .average(); //【1】
+            double avg = opt.orElse(0.0d); //【2】
             System.out.println(avg);
         }
     }

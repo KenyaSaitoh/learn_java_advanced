@@ -13,7 +13,7 @@ public class MyParaThread extends Thread {
     @Override
     public void run() {
         System.out.println("[ MyParaThread ] start, name => " + getName());
-        sleepAWhile(timer); // 指定されたミリ秒間、一時停止するユーティリティ
+        sleepAWhile(timer); //【1】指定されたミリ秒間、一時停止するユーティリティ
         System.out.println("[ MyParaThread ] finish, name => " + getName());
     }
 }

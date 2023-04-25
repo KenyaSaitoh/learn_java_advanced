@@ -12,17 +12,17 @@ import java.nio.charset.StandardCharsets;
 public class Main {
     public static void main(String[] args) {
         try (
-                // ServerSocketChannelをオープンする
+                //【1】ServerSocketChannelをオープンする
                 ServerSocketChannel ssc = ServerSocketChannel.open()) {
 
-            // ソケットアドレス（ポート番号）をバインドする
+            //【2】ソケットアドレス（ポート番号）をバインドする
             ssc.bind(new InetSocketAddress(55555));
 
-            while (true) {
+            while (true) { //【3】
                 System.out.println("start accept");
                 System.out.println("waiting...");
-                SocketChannel socketChannel = ssc.accept(); // ここで受信を待機する
-                readAndWrite(socketChannel);
+                SocketChannel socketChannel = ssc.accept(); //【4】接続を確立する（ブロッキング）
+                readAndWrite(socketChannel); //【5】
                 System.out.println("finish accept");
             }
 
@@ -34,27 +34,27 @@ public class Main {
     private static void readAndWrite(SocketChannel socketChannel) {
         System.out.println("start process");
 
-        // 新しいByteBufferを割り当てる（リクエスト用、レスポンス用）
+        //【1】新しいByteBufferを割り当てる（リクエスト用、レスポンス用）
         ByteBuffer requestBuffer = ByteBuffer.allocate(1000);
         ByteBuffer responseBuffer = ByteBuffer.allocate(1000);
 
         try {
-            // SocketChannelからByteBufferにデータを読み込む
+            //【2】SocketChannelからByteBufferにデータを読み込む（ブロッキング）
             System.out.println("waiting...");
             socketChannel.read(requestBuffer);// ここで読み込みを待機する
 
-            // ByteBufferをフリップする
+            //【3】ByteBufferをフリップする
             requestBuffer.flip();
 
-            // リクエストをByteBufferからデコードし、何らかの業務処理を行う
+            //【4】リクエストをByteBufferから取り出し、何らかの業務処理を行う
             String request = StandardCharsets.UTF_8.decode(requestBuffer).toString();
             String response = "Hello! 私は" + request + "です";
             sleepAWhile(2000);
 
-            // レスポンスをByteBufferに追加する
+            //【5】レスポンスをByteBufferに追加する
             responseBuffer = StandardCharsets.UTF_8.encode(response);
 
-            // SocketChannelにByteBufferからデータを書き込む
+            //【6】SocketChannelにByteBufferからデータを書き込む
             socketChannel.write(responseBuffer);
             System.out.println("response => " + response);
 

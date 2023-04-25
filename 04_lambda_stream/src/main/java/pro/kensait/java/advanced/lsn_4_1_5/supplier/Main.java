@@ -10,9 +10,9 @@ public class Main {
         info(() -> "THIS IS INFO LOG.");
     }
 
-    static void info(Supplier<String> s) {
+    static void info(Supplier<String> s) { //【1】
         if (infoLevel) {
-            System.out.println("[ INFO ] " + s.get());
+            System.out.println("[ INFO ] " + s.get()); //【2】
         }
     }
 }

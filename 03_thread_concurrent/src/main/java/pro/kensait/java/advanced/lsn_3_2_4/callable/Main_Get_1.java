@@ -12,11 +12,11 @@ public class Main_Get_1 {
 
         try {
             System.out.println("[ Main ] starting task...");
-            Future<Integer> future = executor.submit(task);
-            Integer result = future.get();
+            Future<Integer> future = executor.submit(task); //【1】
+            Integer result = future.get(); //【2】
             System.out.println("result => " + result);
             System.out.println("[ Main ] finish");   
-        } catch(InterruptedException | ExecutionException ex) {
+        } catch(InterruptedException | ExecutionException ex) { //【3】
             throw new RuntimeException(ex);
         }
 

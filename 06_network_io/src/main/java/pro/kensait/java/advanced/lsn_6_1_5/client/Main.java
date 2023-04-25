@@ -8,17 +8,17 @@ import java.nio.charset.StandardCharsets;
 
 public class Main {
     public static void main(String[] args) {
-        // 新しいByteBufferを割り当てる（リクエスト用）
+        //【1】新しいByteBufferを割り当てる（リクエスト用）
         ByteBuffer buffer = ByteBuffer.allocate(1000);
 
-        // リクエストをByteBufferに追加する
+        //【2】リクエストをByteBufferに追加する
         buffer = StandardCharsets.UTF_8.encode("Alice");
 
         try (
-                // DatagramChannelをオープンする
+                //【3】DatagramChannelをオープンする
                 DatagramChannel channel = DatagramChannel.open()) {
 
-            // DatagramChannelにByteBufferを書き込む
+            //【4】DatagramChannelにByteBufferを書き込む
             System.out.println("send request");
             channel.send(buffer, new InetSocketAddress("localhost", 55555));
 

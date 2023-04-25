@@ -3,7 +3,7 @@ package pro.kensait.java.advanced.lsn_5_2_2;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Person implements Serializable {
+public class Person implements Serializable { //【1】
     private static final long serialVersionUID = 4510489553386281586L;
     // フィールド
     private String name;

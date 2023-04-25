@@ -14,8 +14,8 @@ public class Main_Timeout {
 
         try {
             System.out.println("[ Main ] starting task...");
-            Future<Integer> future = executor.submit(task);
-            Integer result = future.get(4, TimeUnit.SECONDS);
+            Future<Integer> future = executor.submit(task); //【1】8秒かかる処理を起動
+            Integer result = future.get(4, TimeUnit.SECONDS); //【2】4秒でタイムアウト
             System.out.println("result => " + result);
             System.out.println("[ Main ] finish");
         } catch(InterruptedException | ExecutionException | TimeoutException ex) {

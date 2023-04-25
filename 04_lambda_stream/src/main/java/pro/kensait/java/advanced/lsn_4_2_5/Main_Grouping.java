@@ -11,8 +11,8 @@ public class Main_Grouping {
             List<Sales> salesList = SalesHolder.getSalesList();
             Map<String, List<Sales>> resultMap = salesList.stream()
                     .filter(sales -> sales.getProductName().startsWith("A"))
-                    .collect(Collectors.groupingBy(
-                            Sales::getProductName));
+                    .collect(Collectors.groupingBy( //【1】
+                            Sales::getProductName)); //【2】
 
             for (String key : resultMap.keySet()) {
                 System.out.println(key + " => " + resultMap.get(key));
@@ -25,7 +25,7 @@ public class Main_Grouping {
                     .filter(sales -> sales.getProductName().startsWith("A"))
                     .collect(Collectors.groupingBy(
                             Sales::getProductName,
-                            Collectors.counting()));
+                            Collectors.counting())); //【1】
 
             for (String key : resultMap.keySet()) {
                 System.out.println(key + " => " + resultMap.get(key));
@@ -38,7 +38,7 @@ public class Main_Grouping {
                     .filter(sales -> sales.getProductName().startsWith("A"))
                     .collect(Collectors.groupingBy(
                             Sales::getProductName,
-                            Collectors.summingInt(Sales::getCount)));
+                            Collectors.summingInt(Sales::getCount))); //【1】
 
             for (String key : resultMap.keySet()) {
                 System.out.println(key + " => " + resultMap.get(key));

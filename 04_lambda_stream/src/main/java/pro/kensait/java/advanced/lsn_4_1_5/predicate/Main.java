@@ -9,7 +9,7 @@ public class Main {
         System.out.println(flag);
     }
 
-    static boolean checkUserSpeck(User user, Predicate<User> userSpec) {
-        return userSpec.test(user);
+    static boolean checkUserSpeck(User user, Predicate<User> userSpec) { //【1】
+        return userSpec.test(user); //【2】
     }
 }

@@ -15,11 +15,11 @@ public class Main_Done {
         try {
             System.out.println("[ Main ] starting task...");
             Future<Integer> future = executor.submit(task);
-            while (! future.isDone()) {
-                System.out.println("[ Main ] do something...");
+            while (! future.isDone()) { //【1】
+                System.out.println("[ Main ] do something..."); // 何か別の処理を行う
                 sleepAWhile(1000);
             }
-            Integer result = future.get();
+            Integer result = future.get(); //【2】
             System.out.println("result => " + result);
             System.out.println("[ Main ] finish");
         } catch (InterruptedException | ExecutionException ex) {

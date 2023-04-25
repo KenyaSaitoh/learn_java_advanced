@@ -9,8 +9,8 @@ public class Main_Reduce {
             System.out.println("***** snippet_1 *****");
             List<String> strList = Arrays.asList("Alice", "Bob", "Carol", "Dave");
             String concatedString = strList.stream()
-                    .reduce((result, param) -> result + "/" + param)
-                    .orElse("");
+                    .reduce((result, param) -> result + "/" + param) //【1】
+                    .orElse(""); //【2】
             System.out.println(concatedString);
         }
         {
@@ -18,8 +18,8 @@ public class Main_Reduce {
             List<String> strList = Arrays.asList("Alice", "Bob", "Carol", "Dave");
             int strLength = strList.stream()
                     .mapToInt(str -> str.length())
-                    .reduce((result, param) -> result + param)
-                    .orElse(0);
+                    .reduce((result, param) -> result + param) //【1】
+                    .orElse(0); //【2】
             System.out.println(strLength);
         }
     }

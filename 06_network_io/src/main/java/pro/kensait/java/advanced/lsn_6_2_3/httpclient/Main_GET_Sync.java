@@ -11,35 +11,35 @@ import java.util.Map;
 public class Main_GET_Sync {
     public static void main(String[] args) throws Exception {
         // HttpClientインスタンスを生成する
-        HttpClient client = HttpClient.newBuilder()
-                .version(HttpClient.Version.HTTP_2)
-                .build();
+        HttpClient client = HttpClient.newBuilder() //【1】
+                .version(HttpClient.Version.HTTP_2) //【2】
+                .build(); //【3】
 
         // HttpRequestインスタンスを生成する
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:8080?name=Alice"))
-                .header("User-Agent", "Java SE HttpClient")
+        HttpRequest request = HttpRequest.newBuilder() //【1】
+                .uri(URI.create("http://localhost:8080?name=Alice")) //【2】
+                .header("User-Agent", "Java SE HttpClient") //【3】
                 .GET()
-                .build();
+                .build(); //【4】
 
         // HttpRequestを送信し、HttpResponseを受け取る
         HttpResponse<String> response =
                 client.send(request, HttpResponse.BodyHandlers.ofString());
 
         // HttpResponseからステータスを取得する
-        int status = response.statusCode();
+        int status = response.statusCode(); //【1】ステータス
         System.out.println("[ STATUS ]");
         System.out.println(status);
 
         // HttpResponseからヘッダを取得する
-        HttpHeaders resHeaders = response.headers();
+        HttpHeaders resHeaders = response.headers(); //【2】HTTPヘッダ
         System.out.println("[ HEADERS ]");
         for (Map.Entry<String, List<String>> entry : resHeaders.map().entrySet()) {
             System.out.println(entry.getKey() + ": " + entry.getValue().get(0));
         }
 
         // HttpResponseからボディを取り出す
-        String resBody = response.body();
+        String resBody = response.body(); //【3】ボディ
         System.out.println("[ BODY ]");
         System.out.println(resBody);
     }

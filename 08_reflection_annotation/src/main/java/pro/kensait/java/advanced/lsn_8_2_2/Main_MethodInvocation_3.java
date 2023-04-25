@@ -11,12 +11,12 @@ public class Main_MethodInvocation_3 {
         // メソッド実行対象クラスのインスタンスを生成する
         Object target = clazz.getDeclaredConstructor().newInstance();
 
-        // Methodインスタンスを取得する
+        // 【1】Methodインスタンスを取得する
         Method method = clazz.getMethod("getHello", String.class, Integer.TYPE);
 
         // メソッドを実行する
-        Object[] params = {"Alice", 25};
-        Object result = method.invoke(target, params);
+        Object[] params = {"Alice", 25}; //【2】
+        Object result = method.invoke(target, params); //【3】
 
         // 戻り値を表示する
         System.out.println(result);

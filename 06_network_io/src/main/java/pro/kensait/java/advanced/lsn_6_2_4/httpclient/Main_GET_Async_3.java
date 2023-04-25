@@ -21,8 +21,8 @@ public class Main_GET_Async_3 {
         // HttpRequestを送信し、HTTPサーバーを非同期で呼び出す
         client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
                 .thenApply(response
-                        -> "### " + response.body() + " ###") // Function型を受け取る
-                .thenAccept(System.out::println); // Consumer型を受け取る
+                        -> "### " + response.body() + " ###") //【1】Function型を受け取る
+                .thenAccept(System.out::println); //【2】Consumer型を受け取る
 
         Thread.sleep(3000);
     }

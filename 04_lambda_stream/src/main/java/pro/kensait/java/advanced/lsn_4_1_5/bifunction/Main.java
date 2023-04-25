@@ -16,11 +16,11 @@ public class Main {
         System.out.println(answer2);
     }
 
-    int compute(int x, int y, BiFunction<Integer, Integer, Integer> bf) {
+    int compute(int x, int y, BiFunction<Integer, Integer, Integer> bf) { //【1】
         if (50 < x) {
             throw new RuntimeException("引数不正");
         }
-        int value = bf.apply(x, y);
+        int value = bf.apply(x, y); //【2】
         if (100 < value) {
             throw new RuntimeException("計算結果不正");
         }

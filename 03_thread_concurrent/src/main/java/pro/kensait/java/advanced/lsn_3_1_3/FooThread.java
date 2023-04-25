@@ -10,7 +10,7 @@ public class FooThread extends Thread {
     @Override
     public void run() {
         System.out.println("[ FooThread ] start");
-        Integer result = shared.getAndWaitData();
-        System.out.println("[ FooThread ] finish, result => " + result);
+        Integer result = shared.getAndWaitData(); //【5】
+        System.out.println("[ FooThread ] finish, result => " + result); //【6】
     }
 }

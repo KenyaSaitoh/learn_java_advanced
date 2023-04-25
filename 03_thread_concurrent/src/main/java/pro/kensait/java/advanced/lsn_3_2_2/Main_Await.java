@@ -15,11 +15,11 @@ public class Main_Await {
         executor.submit(barTask);
         executor.submit(bazTask);
         System.out.println("[ Main ] shutdown");
-        executor.shutdown();
+        executor.shutdown(); //【1】
         try {
-            if (! executor.awaitTermination(12L, TimeUnit.SECONDS)) {
+            if (! executor.awaitTermination(12L, TimeUnit.SECONDS)) { //【2】
                 System.out.println("[ Main ] shutdown now");
-                executor.shutdownNow();
+                executor.shutdownNow(); //【3】
             }
         } catch(InterruptedException ie) {
             executor.shutdownNow();

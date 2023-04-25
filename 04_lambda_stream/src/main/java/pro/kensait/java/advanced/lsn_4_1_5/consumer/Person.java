@@ -7,7 +7,7 @@ public class Person {
     private String name;
     private int age;
     private String gender;
-    // コンストラクタ
+    // 【1】コンストラクタ
     private Person() {}
     // ゲッター
     public String getName() {
@@ -19,7 +19,7 @@ public class Person {
     public String getGender() {
         return gender;
     }
-    // フィールド値の設定用メソッド
+    //【2】フィールド値の設定用メソッド
     public Person withName(String name) {
         this.name = name;
         return this;
@@ -33,9 +33,9 @@ public class Person {
         return this;
     }
     // ビルダーメソッド
-    public static Person build(Consumer<Person> builder) {
+    public static Person build(Consumer<Person> builder) { //【3】
         Person person = new Person();
-        builder.accept(person);
+        builder.accept(person); //【4】
         return person;
     }
     @Override

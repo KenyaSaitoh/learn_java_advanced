@@ -4,7 +4,7 @@ import static pro.kensait.java.advanced.common.ThreadUtil.*;
 
 import java.util.concurrent.Callable;
 
-public class CallableTask implements Callable<Integer> {
+public class CallableTask implements Callable<Integer> { //【1】
     private String name; // 名前
     private int count; // カウント
 
@@ -14,7 +14,7 @@ public class CallableTask implements Callable<Integer> {
     }
 
     @Override
-    public Integer call() throws Exception {
+    public Integer call() throws Exception { //【2】
         long threadId = Thread.currentThread().getId(); // スレッドID
         System.out.println("[ CallableTask = " + name + " ] start, "
                 + "threadId => " + threadId);
@@ -28,6 +28,6 @@ public class CallableTask implements Callable<Integer> {
         System.out.println("[ CallableTask = " + name + " ] finish, "
                 + "value => " + value);
 
-        return value; // 実行結果を返す
+        return value; //【3】実行結果を返す
     }
 }

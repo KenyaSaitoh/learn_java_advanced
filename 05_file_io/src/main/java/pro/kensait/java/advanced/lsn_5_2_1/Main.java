@@ -15,21 +15,24 @@ public class Main {
         Path src = Paths.get("java_logo1.jpg");
         Path dest = Paths.get("java_logo2.jpg");
 
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        // メモリ上の一時領域への書き込み
+        ByteArrayOutputStream baos = new ByteArrayOutputStream(); //【1】
         try(InputStream is = Files.newInputStream(src)) {
             BufferedInputStream bis = new BufferedInputStream(is);
             byte[] buf = new byte[10];
-            while (bis.read(buf) != -1) {
-                baos.write(buf);
+            while (bis.read(buf) != -1) { //【2】
+                baos.write(buf); //【3】
             }
         }
+
+        // メモリ上の一時領域からの読み込み
         byte[] byteArray = baos.toByteArray();
-        ByteArrayInputStream bais = new ByteArrayInputStream(byteArray);
-        try(OutputStream os = Files.newOutputStream(dest)) {
+        ByteArrayInputStream bais = new ByteArrayInputStream(byteArray); //【4】
+        try(OutputStream os = Files.newOutputStream(dest)) { //【5】
             BufferedOutputStream bos = new BufferedOutputStream(os);
             int c;
-            while ((c = bais.read()) != -1) {
-                bos.write(c);
+            while ((c = bais.read()) != -1) { //【6】
+                bos.write(c); //【7】
             }
             bos.flush();
         }

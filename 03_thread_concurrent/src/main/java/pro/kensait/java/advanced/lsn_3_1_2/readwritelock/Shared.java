@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock.WriteLock;
 
 public class Shared {
     private int data;
-    private ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
+    private ReentrantReadWriteLock lock = new ReentrantReadWriteLock(); //【1】
     
     public Shared(int data) {
         this.data = data;
@@ -17,24 +17,24 @@ public class Shared {
     // dataフィールドの書き込み
     public void addData(int num) {
         WriteLock writelock = lock.writeLock();
-        writelock.lock();
+        writelock.lock(); //【2】
         try {
             int tmp = this.data + num;
             sleepAWhile(10); // 10ミリ秒間、一時停止（割り込みのチャンス）
             this.data = tmp;
         } finally {
-            writelock.unlock();
+            writelock.unlock(); //【3】
         }
     }
 
     // dataフィールドの読み込み
     public int getData() {
         ReadLock readLock = lock.readLock();
-        readLock.lock();
+        readLock.lock(); //【4】
         try {
             return data;
         } finally {
-            readLock.unlock();
+            readLock.unlock(); //【5】
         }
     }
 }

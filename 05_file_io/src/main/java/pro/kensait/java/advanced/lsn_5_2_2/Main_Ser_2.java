@@ -7,10 +7,10 @@ import java.nio.file.Paths;
 
 public class Main_Ser_2 {
     public static void main(String[] args) throws Exception {
-        Path serPath = Paths.get("alice.ser");
+        Path serPath = Paths.get("alice.ser"); //【1】
         try (ObjectInputStream ois = new ObjectInputStream(
-                Files.newInputStream(serPath))){
-            Person target = (Person) ois.readObject();
+                Files.newInputStream(serPath))){ //【2】
+            Person target = (Person) ois.readObject(); //【3】
             System.out.println(target);
         }
     }

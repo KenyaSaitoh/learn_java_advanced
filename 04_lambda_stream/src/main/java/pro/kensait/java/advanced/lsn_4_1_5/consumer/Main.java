@@ -9,10 +9,10 @@ public class Main {
         doList(str -> System.out.println(str));
     }
 
-    static void doList(Consumer<String> c) {
+    static void doList(Consumer<String> c) { //【1】
         List<String> strList = Arrays.asList("foo", "bar", "baz");
         for (String str : strList) {
-            c.accept(str);
+            c.accept(str); //【2】
         }
     }
 }

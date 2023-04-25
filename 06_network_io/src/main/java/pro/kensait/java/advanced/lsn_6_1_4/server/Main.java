@@ -17,26 +17,26 @@ public class Main {
 
     public static void main(String[] args) {
         try (
-                // ServerSocketChannelをオープンする
+                //【1】ServerSocketChannelをオープンする
                 ServerSocketChannel ssc = ServerSocketChannel.open()) {
 
-            // ソケットアドレス（ポート番号）をバインドする
+            //【2】ソケットアドレス（ポート番号）をバインドする
             ssc.bind(new InetSocketAddress(55555));
 
-            // ノンブロッキングモードに設定する
+            //【3】ノンブロッキングモードに設定する
             ssc.configureBlocking(false);
 
-            // セレクタをオープンする
+            //【4】セレクタをオープンする
             selector = Selector.open();
 
-            // ServerSocketChannelをセレクタに登録する
+            //【5】ServerSocketChannelをセレクタに登録する
             ssc.register(selector, SelectionKey.OP_ACCEPT);
 
             int count;
-            while (0 < (count = selector.select())) { // ブロッキング
+            while (0 < (count = selector.select())) { //【6】ブロッキング
                 System.out.println("select count => " + count);
 
-                // 準備完了したキーの集合を取得し、while文でループ処理する
+                //【7】準備完了したキーの集合を取得し、while文でループ処理する
                 Iterator<SelectionKey> keyIterator = selector.selectedKeys()
                         .iterator();
                 while (keyIterator.hasNext()) {
@@ -44,10 +44,10 @@ public class Main {
                     keyIterator.remove();
 
                     if (key.isAcceptable()) {
-                        // 接続処理の準備が完了していた場合
+                        //【8】接続処理の準備が完了していた場合
                         accept((ServerSocketChannel) key.channel());
                     } else if (key.isReadable()) {
-                        // 読み込み処理の準備が完了していた場合
+                        //【9】読み込み処理の準備が完了していた場合
                         readAndWrite((SocketChannel) key.channel());
                     }
                 }
@@ -61,13 +61,13 @@ public class Main {
     private static void accept(ServerSocketChannel ssc) {
         System.out.println("start accept");
         try {
-            // 接続を受け付け、SocketChannelを取得する
+            //【1】接続を受け付け、SocketChannelを取得する
             SocketChannel socketChannel = ssc.accept();
 
-            // ノンブロッキングモードに設定する
+            //【2】ノンブロッキングモードに設定する
             socketChannel.configureBlocking(false);
 
-            // SocketChannelをセレクタに登録する
+            //【3】SocketChannelをセレクタに登録する
             socketChannel.register(selector, SelectionKey.OP_READ);
 
         } catch (IOException ioe) {

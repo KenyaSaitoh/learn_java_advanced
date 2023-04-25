@@ -7,11 +7,11 @@ public class Shared {
         this.data = data;
     }
 
-    // 計算結果が格納されるまで待機し、その後値を返す
+    //【1】計算結果が格納されるまで待機し、その後値を返す
     public synchronized Integer getAndWaitData() {
         if (data == null) {
             try {
-                wait();
+                wait(); //【2】
             } catch (InterruptedException ie) {
                 throw new RuntimeException(ie);
             }
@@ -19,9 +19,9 @@ public class Shared {
         return data;
     }
 
-    // 計算結果を格納し、通知する
+    //【3】計算結果を格納し、通知する
     public synchronized void setAndNotifyData(Integer data) {
         this.data = data;
-        notify();
+        notify(); //【4】
     }
 }

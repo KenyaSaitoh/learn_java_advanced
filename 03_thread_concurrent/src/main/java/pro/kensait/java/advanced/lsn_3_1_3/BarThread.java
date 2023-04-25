@@ -12,12 +12,12 @@ public class BarThread extends Thread {
     @Override
     public void run() {
         System.out.println("[ BarThread ] start");
-        // 5000ミリ秒かかる複雑な計算処理を行い、その結果が12345だったとする
+        // 5000ミリ秒かかる「比較的複雑な計算処理」を行い、結果が12345とする
         sleepAWhile(5000);
         int result = 12345;
 
         // 共有インスタンスに結果を設定する
-        shared.setAndNotifyData(result);
+        shared.setAndNotifyData(result); //【7】
         System.out.println("[ BarThread ] finish");
     }
 }

@@ -5,9 +5,9 @@ import java.util.Map;
 
 public class ThreadLocalHolder {
     private static ThreadLocal<Map<String, String>> context =
-            new ThreadLocal<>() {
+            new ThreadLocal<>() { //【1】
         @Override
-        public Map<String, String> initialValue() {
+        public Map<String, String> initialValue() { //【2】
             return new HashMap<String, String>();
         }
     };

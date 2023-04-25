@@ -10,7 +10,7 @@ import pro.kensait.java.advanced.lsn_4_2_5.SalesHolder;
 public class Main_Sales {
     public static void main(String[] args) {
         List<Sales> salesList = SalesHolder.getSalesList();
-        Map<String, Integer> resultMap = salesList.parallelStream()
+        Map<String, Integer> resultMap = salesList.parallelStream() //【1】
                 .filter(sales -> sales.getProductName().startsWith("A"))
                 .map(sales -> {
                     String newName = sales.getProductName().replace("-", "");

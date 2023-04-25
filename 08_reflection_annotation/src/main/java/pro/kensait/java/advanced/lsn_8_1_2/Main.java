@@ -14,9 +14,9 @@ public class Main {
         {
             System.out.println("***** snippet_3 *****");
             Class<Greeting> clazz = Greeting.class;
-            System.out.println(clazz.getCanonicalName());
-            System.out.println(clazz.getSimpleName());
-            System.out.println(clazz.getPackageName());
+            System.out.println(clazz.getCanonicalName()); //【1】
+            System.out.println(clazz.getSimpleName()); //【2】
+            System.out.println(clazz.getPackageName()); //【3】
         }
         {
             System.out.println("***** snippet_4 *****");
