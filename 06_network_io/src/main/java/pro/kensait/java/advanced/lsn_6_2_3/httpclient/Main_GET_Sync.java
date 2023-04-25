@@ -16,30 +16,30 @@ public class Main_GET_Sync {
                 .build(); //【3】
 
         // HttpRequestインスタンスを生成する
-        HttpRequest request = HttpRequest.newBuilder() //【1】
-                .uri(URI.create("http://localhost:8080?name=Alice")) //【2】
-                .header("User-Agent", "Java SE HttpClient") //【3】
+        HttpRequest request = HttpRequest.newBuilder() //【4】
+                .uri(URI.create("http://localhost:8080?name=Alice")) //【5】
+                .header("User-Agent", "Java SE HttpClient") //【6】
                 .GET()
-                .build(); //【4】
+                .build(); //【7】
 
         // HttpRequestを送信し、HttpResponseを受け取る
         HttpResponse<String> response =
                 client.send(request, HttpResponse.BodyHandlers.ofString());
 
         // HttpResponseからステータスを取得する
-        int status = response.statusCode(); //【1】ステータス
+        int status = response.statusCode(); //【8】ステータス
         System.out.println("[ STATUS ]");
         System.out.println(status);
 
         // HttpResponseからヘッダを取得する
-        HttpHeaders resHeaders = response.headers(); //【2】HTTPヘッダ
+        HttpHeaders resHeaders = response.headers(); //【9】HTTPヘッダ
         System.out.println("[ HEADERS ]");
         for (Map.Entry<String, List<String>> entry : resHeaders.map().entrySet()) {
             System.out.println(entry.getKey() + ": " + entry.getValue().get(0));
         }
 
         // HttpResponseからボディを取り出す
-        String resBody = response.body(); //【3】ボディ
+        String resBody = response.body(); //【10】ボディ
         System.out.println("[ BODY ]");
         System.out.println(resBody);
     }

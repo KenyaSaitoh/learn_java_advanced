@@ -13,6 +13,7 @@ public class Main_Collection {
                     .filter(sales -> sales.getProductName().startsWith("A")) //【2】
                     .collect(Collectors.toList()); //【3】
             System.out.println(resultList);
+            System.out.println("=> end");
         }
         {
             System.out.println("***** snippet_2 *****");
@@ -24,6 +25,7 @@ public class Main_Collection {
                             Sales::getCount, //【3】
                             (oldVal, newVal) -> newVal)); //【4】
             System.out.println(resultMap);
+            System.out.println("=> end");
         }
     }
 }

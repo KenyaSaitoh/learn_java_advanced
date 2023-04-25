@@ -12,6 +12,7 @@ public class Main_Reduce {
                     .reduce((result, param) -> result + "/" + param) //【1】
                     .orElse(""); //【2】
             System.out.println(concatedString);
+            System.out.println("=> end");
         }
         {
             System.out.println("***** snippet_2 *****");
@@ -21,6 +22,7 @@ public class Main_Reduce {
                     .reduce((result, param) -> result + param) //【1】
                     .orElse(0); //【2】
             System.out.println(strLength);
+            System.out.println("=> end");
         }
     }
 }

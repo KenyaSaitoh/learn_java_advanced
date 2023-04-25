@@ -2,10 +2,10 @@ package pro.kensait.java.advanced.lsn_4_1_3.reuse;
 
 public class Main_Function {
     public static void main(String[] args) {
-        int answer1 = compute(30, 10, (x, y) -> x + y); //【1】足し算
+        int answer1 = compute(30, 10, (x, y) -> x + y); //【3】足し算
         System.out.println(answer1);
 
-        int answer2 = compute(30, 10, (x, y) -> x - y); //【2】引き算
+        int answer2 = compute(30, 10, (x, y) -> x - y); //【4】引き算
         System.out.println(answer2);
     }
 

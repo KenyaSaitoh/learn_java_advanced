@@ -7,12 +7,14 @@ public class Main {
             MyContainer<Integer> container1 = new MyContainer<>(100); //【1】
             int num = container1.getProperty(); //【2】
             System.out.println(num);
+            System.out.println("=> end");
         }
         {
             System.out.println("***** snippet_1 *****");
             MyContainer<String> container2 = new MyContainer<>("Hello");
             String str = container2.getProperty();
             System.out.println(str);
+            System.out.println("=> end");
         }
     }
 }

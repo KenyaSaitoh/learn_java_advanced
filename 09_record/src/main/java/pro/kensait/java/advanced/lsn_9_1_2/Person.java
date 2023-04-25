@@ -11,11 +11,11 @@ public record Person(String name, int age, String gender) implements Serializabl
     }
 
     @Override
-    public String toString() { //【1】
+    public String toString() { //【2】
         return "[ name => " + name + ", age => " + age + "]";
     }
 
-    public void sayHello() { //【2】
+    public void sayHello() { //【3】
         String message = "こんにちは！私は" + name + "、" + age + "歳です。";
         System.out.println(message);
     }

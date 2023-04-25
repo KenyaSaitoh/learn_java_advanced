@@ -5,11 +5,13 @@ public class Main {
         {
             System.out.println("***** snippet_1 *****");
             Class<Greeting> clazz = Greeting.class;
+            System.out.println("=> end");
         }
         {
             System.out.println("***** snippet_2 *****");
             Greeting greeting = new Greeting();
             Class<?> clazz = greeting.getClass();
+            System.out.println("=> end");
         }
         {
             System.out.println("***** snippet_3 *****");
@@ -17,6 +19,7 @@ public class Main {
             System.out.println(clazz.getCanonicalName()); //【1】
             System.out.println(clazz.getSimpleName()); //【2】
             System.out.println(clazz.getPackageName()); //【3】
+            System.out.println("=> end");
         }
         {
             System.out.println("***** snippet_4 *****");
@@ -24,6 +27,7 @@ public class Main {
             Object obj = val1;
             // Integer val2 = (Integer) obj;
             Integer val2 = Integer.class.cast(obj);
+            System.out.println("=> end");
         }
     }
 }

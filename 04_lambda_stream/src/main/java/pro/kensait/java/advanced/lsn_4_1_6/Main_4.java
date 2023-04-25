@@ -9,12 +9,14 @@ public class Main_4 {
             Printer printer = new Printer();
             Consumer<String> c1 = (msg) -> printer.print(msg);
             c1.accept("Hello, World!");
+            System.out.println("=> end");
         }
         {
             System.out.println("***** snippet_2 *****");
             Printer printer = new Printer();
             Consumer<String> c2 = printer::print;
             c2.accept("Hello, World!");
+            System.out.println("=> end");
         }
     }
 }

@@ -13,6 +13,7 @@ public class Main_Aggregate {
                     .filter(x -> x % 2 == 0)
                     .count();
             System.out.println(count);
+            System.out.println("=> end");
         }
         {
             System.out.println("***** snippet_2 *****");
@@ -21,6 +22,7 @@ public class Main_Aggregate {
                     .mapToInt(x -> x * 10) //【1】
                     .sum(); //【2】
             System.out.println(sum);
+            System.out.println("=> end");
         }
         {
             System.out.println("***** snippet_3 *****");
@@ -31,6 +33,7 @@ public class Main_Aggregate {
                     .average(); //【1】
             double avg = opt.orElse(0.0d); //【2】
             System.out.println(avg);
+            System.out.println("=> end");
         }
     }
 }

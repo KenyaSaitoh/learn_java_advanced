@@ -9,12 +9,14 @@ public class Main_3 {
             User alice = new User(1, 25);
             boolean flag = checkUserSpeck(alice, user -> user.isAdult());
             System.out.println(flag);
+            System.out.println("=> end");
         }
         {
             System.out.println("***** snippet_2 *****");
             User alice = new User(1, 25);
             boolean flag = checkUserSpeck(alice, User::isAdult);
             System.out.println(flag);
+            System.out.println("=> end");
         }
     }
 

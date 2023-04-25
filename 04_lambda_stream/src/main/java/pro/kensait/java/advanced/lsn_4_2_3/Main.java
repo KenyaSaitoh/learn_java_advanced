@@ -13,6 +13,7 @@ public class Main {
                     .filter(x -> x % 2 == 0) //【1】
                     .distinct() //【2】
                     .forEach(System.out::println);
+            System.out.println("=> end");
         }
         {
             System.out.println("***** snippet_2 *****");
@@ -20,6 +21,7 @@ public class Main {
             list.stream()
                     .map(x -> x * 2) //【1】
                     .forEach(System.out::println);
+            System.out.println("=> end");
         }
         {
             System.out.println("***** snippet_3 *****");
@@ -28,6 +30,7 @@ public class Main {
                     .map(str -> str.toUpperCase()) //【1】
                     .sorted() //【2】
                     .forEach(System.out::println);
+            System.out.println("=> end");
         }
         {
             System.out.println("***** snippet_4 *****");
@@ -35,6 +38,7 @@ public class Main {
             strList.stream()
                     .flatMap(str -> Stream.of(str.toLowerCase(), str.toUpperCase())) //【1】
                     .forEach(System.out::println);
+            System.out.println("=> end");
         }
         {
             System.out.println("***** snippet_5 *****");
@@ -44,6 +48,7 @@ public class Main {
                     .skip(3) //【4】
                     .limit(5) //【5】
                     .forEach(System.out::println);
+            System.out.println("=> end");
         }
     }
 }

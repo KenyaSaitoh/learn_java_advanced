@@ -17,6 +17,7 @@ public class Main_Grouping {
             for (String key : resultMap.keySet()) {
                 System.out.println(key + " => " + resultMap.get(key));
             }
+            System.out.println("=> end");
         }
         {
             System.out.println("***** snippet_2 *****");
@@ -30,6 +31,7 @@ public class Main_Grouping {
             for (String key : resultMap.keySet()) {
                 System.out.println(key + " => " + resultMap.get(key));
             }
+            System.out.println("=> end");
         }
         {
             System.out.println("***** snippet_3 *****");
@@ -43,6 +45,7 @@ public class Main_Grouping {
             for (String key : resultMap.keySet()) {
                 System.out.println(key + " => " + resultMap.get(key));
             }
+            System.out.println("=> end");
         }
     }
 }

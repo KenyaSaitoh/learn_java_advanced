@@ -12,23 +12,27 @@ public class Main_Files_2 {
             Path srcFile = Paths.get("hoge/fuga/foo.txt");
             Path destFile = Paths.get("hoge/fuga/foo2.txt");
             Files.copy(srcFile, destFile);
+            System.out.println("=> end");
         }
         {
             System.out.println("***** snippet_2 *****");
             Path srcFile = Paths.get("hoge/fuga/foo.txt");
             Path destFile = Paths.get("hoge/piyo/foo.txt");
             Files.move(srcFile, destFile);
+            System.out.println("=> end");
         }
         {
             System.out.println("***** snippet_3 *****");
             Path srcDir = Paths.get("hoge/piyo");
             Path destDir = Paths.get("hoge/piyo2");
             Files.move(srcDir, destDir);
+            System.out.println("=> end");
         }
         {
             System.out.println("***** snippet_4 *****");
             Path destFile = Paths.get("hoge/fuga/foo2.txt");
             Files.delete(destFile);
+            System.out.println("=> end");
         }
         {
             // 元に戻す
