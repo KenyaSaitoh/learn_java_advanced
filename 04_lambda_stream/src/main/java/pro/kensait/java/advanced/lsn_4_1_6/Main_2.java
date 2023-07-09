@@ -18,10 +18,12 @@ public class Main_2 {
         }
         {
             System.out.println("***** snippet_3 *****");
+            // 引数を文字列連結し、その結果をコンソール表示する
             doList(str -> System.out.println(str + str));
+
+            // 引数の文字列長を判定した上でコンソール表示する
             doList(str -> {
-                if (3 < str.length())
-                    System.out.println(str);
+                if (3 < str.length()) System.out.println(str);
             });
             System.out.println("=> end");
         }

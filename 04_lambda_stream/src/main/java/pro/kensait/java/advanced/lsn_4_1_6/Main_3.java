@@ -1,26 +1,31 @@
 package pro.kensait.java.advanced.lsn_4_1_6;
 
-import java.util.function.Predicate;
+import java.util.function.BiFunction;
+
+import pro.kensait.java.advanced.lsn_4_1_3.functional.CalcFunction;
 
 public class Main_3 {
     public static void main(String[] args) {
         {
             System.out.println("***** snippet_1 *****");
-            User alice = new User(1, 25);
-            boolean flag = checkUserSpeck(alice, user -> user.isAdult());
-            System.out.println(flag);
+            CalcFunction addFunc = (x, y) -> {return StaticCalculator.add(x, y);};
+            int answer = addFunc.calc(30, 10);
+            System.out.println(answer);
             System.out.println("=> end");
         }
         {
             System.out.println("***** snippet_2 *****");
-            User alice = new User(1, 25);
-            boolean flag = checkUserSpeck(alice, User::isAdult);
-            System.out.println(flag);
+            CalcFunction addFunc = StaticCalculator::add;
+            int answer = addFunc.calc(30, 10);
+            System.out.println(answer);
             System.out.println("=> end");
         }
-    }
-
-    static boolean checkUserSpeck(User user, Predicate<User> userSpec) {
-        return userSpec.test(user);
+        {
+            System.out.println("***** snippet_3 *****");
+            BiFunction<Integer, Integer, Integer> addFunc = StaticCalculator::add;
+            int answer = addFunc.apply(30, 10);
+            System.out.println(answer);
+            System.out.println("=> end");
+        }
     }
 }
