@@ -1,4 +1,4 @@
-package pro.kensait.java.advanced.lsn_5_1_2;
+package pro.kensait.java.advanced.lsn_5_1_3;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

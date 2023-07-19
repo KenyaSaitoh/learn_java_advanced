@@ -18,9 +18,9 @@ public class Main_POST_Sync {
         // HttpRequestインスタンスを生成する
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:8080"))
-                .header("Content-Type", "application/x-www-form-urlencoded")
+                .header("Content-Type", "application/x-www-form-urlencoded") //【1】
                 .header("User-Agent", "Java SE HttpClient")
-                .POST(HttpRequest.BodyPublishers.ofString("name=Alice"))
+                .POST(HttpRequest.BodyPublishers.ofString("name=Alice")) //【2】
                 .build();
 
         // HttpRequestを送信し、HttpResponseを受け取る
