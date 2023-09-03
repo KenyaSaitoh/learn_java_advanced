@@ -8,12 +8,12 @@ import java.util.concurrent.CompletableFuture;
 
 public class Main_GET_Async_1 {
     public static void main(String[] args) throws Exception {
-        // HttpClientインスタンスを生成する
+        // HttpClientオブジェクトを生成する
         HttpClient client = HttpClient.newBuilder()
                 .version(HttpClient.Version.HTTP_2)
                 .build();
 
-        // HttpRequestインスタンスを生成する
+        // HttpRequestオブジェクトを生成する
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:8080?name=Alice"))
                 .header("User-Agent", "Java SE HttpClient")

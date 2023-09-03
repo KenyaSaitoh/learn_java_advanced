@@ -6,8 +6,6 @@ import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.StandardCharsets;
 
-import pro.kensait.java.advanced.common.ThreadUtil;
-
 public class Main {
     public static void main(String[] args) {
         //【1】新しいByteBufferを割り当てる（リクエスト用、レスポンス用）
@@ -21,8 +19,6 @@ public class Main {
                 //【3】SocketChannelをオープンする
                 SocketChannel socketChannel = SocketChannel.open(
                         new InetSocketAddress("localhost", 55555))) {
-
-            ThreadUtil.sleepRandomTime(7000, 8000);
 
             //【4】SocketChannelにByteBufferを書き込む
             System.out.println("sending request...");

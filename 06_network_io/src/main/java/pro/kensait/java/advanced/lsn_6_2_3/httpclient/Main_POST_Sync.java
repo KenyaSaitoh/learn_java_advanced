@@ -10,12 +10,12 @@ import java.util.Map;
 
 public class Main_POST_Sync {
     public static void main(String[] args) throws Exception {
-        // HttpClientインスタンスを生成する
+        // HttpClientオブジェクトを生成する
         HttpClient client = HttpClient.newBuilder()
                 .version(HttpClient.Version.HTTP_2)
                 .build();
 
-        // HttpRequestインスタンスを生成する
+        // HttpRequestオブジェクトを生成する
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:8080"))
                 .header("Content-Type", "application/x-www-form-urlencoded") //【1】

@@ -10,12 +10,12 @@ import java.util.Map;
 
 public class Main_GET_Sync {
     public static void main(String[] args) throws Exception {
-        // HttpClientインスタンスを生成する
+        // HttpClientオブジェクトを生成する
         HttpClient client = HttpClient.newBuilder() //【1】
                 .version(HttpClient.Version.HTTP_2) //【2】
                 .build(); //【3】
 
-        // HttpRequestインスタンスを生成する
+        // HttpRequestオブジェクトを生成する
         HttpRequest request = HttpRequest.newBuilder() //【4】
                 .uri(URI.create("http://localhost:8080?name=Alice")) //【5】
                 .header("User-Agent", "Java SE HttpClient") //【6】

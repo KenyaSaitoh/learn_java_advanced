@@ -11,12 +11,12 @@ import java.util.Map;
 
 public class Main_GET_Sync_Encoded {
     public static void main(String[] args) throws Exception {
-        // HttpClientインスタンスを生成する
+        // HttpClientオブジェクトを生成する
         HttpClient client = HttpClient.newBuilder()
                 .version(HttpClient.Version.HTTP_2)
                 .build();
 
-        // HttpRequestインスタンスを生成する
+        // HttpRequestオブジェクトを生成する
         String encodedName = URLEncoder.encode("さいとう", "UTF-8");
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:8080?name=" + encodedName))
