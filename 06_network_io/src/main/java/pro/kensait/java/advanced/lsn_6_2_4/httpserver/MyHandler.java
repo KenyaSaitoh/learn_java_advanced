@@ -13,35 +13,19 @@ import com.sun.net.httpserver.HttpHandler;
 
 public class MyHandler implements HttpHandler {
     public void handle(HttpExchange exchange) throws IOException {
-        System.out.println("========================================");
 
         // HTTPリクエストの各種情報を取得する
-        String method = exchange.getRequestMethod();
-        String requestURI = exchange.getRequestURI().toString();
         String query = exchange.getRequestURI().getQuery();
-        String protocol = exchange.getProtocol();
-        Headers reqHeaders = exchange.getRequestHeaders();
 
         // リクエストボディを取得する
         InputStream is = exchange.getRequestBody();
         byte[] reqData = is.readAllBytes();
         is.close();
 
-        // 開始行を表示する
-        String startLine = method + " " + requestURI + " " + protocol;
-        System.out.println(startLine);
-
-        // リクエストヘッダを表示する
-        for (String name : reqHeaders.keySet()) {
-            System.out.println(name + ": " + reqHeaders.getFirst(name));
-        }
-
         // リクエストボディを表示する
         String reqBody = null;
         if (reqData.length != 0) {
-            System.out.println();
             reqBody = new String(reqData, StandardCharsets.UTF_8);
-            System.out.println(reqBody);
         }
 
         // パラメータを取得する
