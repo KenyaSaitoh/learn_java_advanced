@@ -5,10 +5,6 @@ import java.util.function.BiFunction;
 public class Main {
 
     public static void main(String[] args) {
-        new Main().process();
-    }
-
-    void process() {
         int answer1 = compute(30, 10, (x, y) -> x + y);
         System.out.println(answer1);
 
@@ -16,7 +12,7 @@ public class Main {
         System.out.println(answer2);
     }
 
-    int compute(int x, int y, BiFunction<Integer, Integer, Integer> bf) { //【1】
+    static int compute(int x, int y, BiFunction<Integer, Integer, Integer> bf) { //【1】
         if (50 < x) {
             throw new RuntimeException("引数不正");
         }
