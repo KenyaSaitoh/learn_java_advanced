@@ -13,7 +13,6 @@ public class Main {
         ByteBuffer responseBuffer = ByteBuffer.allocate(1000);
 
         // リクエストをByteBufferに追加する
-        // encodeによってByteBufferの容量が決まる（Aliceなら5）ので、リクエストとレスポンスで使い回しはできない
         requestBuffer = StandardCharsets.UTF_8.encode("Alice");
 
         try (
