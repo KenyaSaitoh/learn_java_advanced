@@ -8,22 +8,24 @@ import java.util.concurrent.CompletableFuture;
 
 public class Main_GET_Async_1 {
     public static void main(String[] args) throws Exception {
-        // HttpClientオブジェクトを生成する
+        // 手順1：HttpClientオブジェクトを生成する
         HttpClient client = HttpClient.newBuilder()
                 .version(HttpClient.Version.HTTP_2)
                 .build();
 
-        // HttpRequestオブジェクトを生成する
+        // 手順2：HttpRequestオブジェクトを生成する
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:8080?name=Alice"))
                 .header("User-Agent", "Java SE HttpClient")
                 .build();
 
-        // HttpRequestを送信し、HTTPサーバーを非同期で呼び出す
+        // 手順3：HttpRequestを送信し、HTTPサーバーを非同期で呼び出す
         CompletableFuture<HttpResponse<String>> future =
                 client.sendAsync(request, HttpResponse.BodyHandlers.ofString());
 
-        // 非同期でHttpResponseを受け取る
+        System.out.println("send request, receiving response...");
+
+        // 手順4：CompletableFutureからHttpResponseを取得し、何らかの後処理を行う
         HttpResponse<String> response = future.get();
 
         // HttpResponseからボディを取り出す

@@ -54,6 +54,9 @@ public class MyHandler implements HttpHandler {
         long contentLength = resBody.getBytes(StandardCharsets.UTF_8).length;
         exchange.sendResponseHeaders(statusCode, contentLength);
 
+        // 便宜上10秒間待機する
+        try { Thread.sleep(10000);} catch(InterruptedException ie) {}
+
         // レスポンスボディを送信する
         OutputStream os = exchange.getResponseBody();
         os.write(resBody.getBytes());
