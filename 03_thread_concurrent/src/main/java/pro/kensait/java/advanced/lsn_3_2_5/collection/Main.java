@@ -10,9 +10,9 @@ import java.util.concurrent.Future;
 
 public class Main {
     public static void main(String[] args) {
-        // 1から1億までのInteger型リストを作る
+        // 1から10万までのInteger型リストを作る
         List<Integer> intList = new ArrayList<>();
-        for (int i = 0; i < 100_000_000; i++) {
+        for (int i = 0; i < 100_000; i++) {
             intList.add(i + 1);
         }
 
@@ -32,7 +32,7 @@ public class Main {
         try {
             List<Future<Integer>> futureList = executor.invokeAll(taskList);
             // 10個のタスクがすべて終了したら、それぞれの結果を集計する
-            int sum = 0;
+            long sum = 0L;
             for (Future<Integer> future : futureList) {
                 sum += future.get();
             }
